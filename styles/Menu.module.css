@@ -1,0 +1,63 @@
+.container {
+  width: 100%;
+  background-color: black;
+  border-bottom: 1px solid lightgray;
+}
+
+.brand {
+  color: white;
+  font-size: 2em;
+}
+
+.brand:hover {
+  color: lightgray;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 992px) {
+  .navLinks {
+    margin: auto;
+  }
+
+  .anchor {
+    color: white;
+    padding: 0.5rem;
+    margin: 0.35rem 0;
+    text-align: center;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+  }
+
+  .anchor:hover {
+    color: black;
+    transition: 250ms;
+    text-decoration: none;
+    background-color: white;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .navLinks {
+    margin: 0 0 0 auto;
+  }
+
+  .playlist {
+    display: none;
+  }
+
+  .anchor {
+    margin: 0 1rem;
+    color: white;
+    text-align: center;
+  }
+
+  .anchor:hover {
+    color: lightgray;
+    transition: 250ms;
+    text-decoration: none;
+  }
+
+  .collapse {
+    padding-top: 0.35rem;
+  }
+}

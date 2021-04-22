@@ -1,0 +1,24 @@
+.play {
+  color: black;
+  font-size: 15rem;
+  transition: 250ms;
+}
+
+.play:hover {
+  font-size: 15.5rem;
+}
+
+.songInfo {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.songInfo p {
+  margin: 0;
+}
+
+.songInfo p:last-of-type {
+  font-size: 0.9em;
+  margin-top: 0.2rem;
+  font-style: italic;
+}
