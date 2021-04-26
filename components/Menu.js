@@ -11,10 +11,22 @@ function Menu() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav" className={menuStyles.collapse}>
         <Nav className={menuStyles.navLinks}>
+          <Link href="/">
+            <a className={menuStyles.anchor}>Home</a>
+          </Link>
           <Link href="/playlist">
             <a className={menuStyles.anchor + " " + menuStyles.playlist}>
               Playlist
             </a>
+          </Link>
+          <Link href="/recommend">
+            <a className={menuStyles.anchor}>Recommend Music</a>
+          </Link>
+          <Link href="/contact">
+            <a className={menuStyles.anchor}>Contact</a>
+          </Link>
+          <Link href="/about">
+            <a className={menuStyles.anchor}>About</a>
           </Link>
         </Nav>
       </Navbar.Collapse>

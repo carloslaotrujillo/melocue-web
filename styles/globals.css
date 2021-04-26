@@ -14,3 +14,17 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.header {
+  margin-top: 2rem;
+  max-width: 24rem;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  margin: 2rem 0;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}

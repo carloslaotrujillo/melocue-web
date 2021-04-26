@@ -1,0 +1,9 @@
+.form {
+  width: inherit;
+  margin: 1rem 0;
+  max-width: 24rem;
+}
+
+.formGroup input {
+  margin: 1rem 0;
+}

@@ -1,7 +1,12 @@
+.h6 {
+  margin-top: 3rem;
+}
+
 .play {
   color: black;
   font-size: 15rem;
   transition: 250ms;
+  margin: 1.5rem 0;
 }
 
 .play:hover {

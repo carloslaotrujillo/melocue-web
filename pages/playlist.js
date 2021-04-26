@@ -1,6 +1,6 @@
 function playlist() {
   return (
-    <div>
+    <div className="container">
       <h1>Playlist</h1>
     </div>
   );

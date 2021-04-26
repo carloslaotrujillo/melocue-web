@@ -12,6 +12,7 @@ function Player() {
 
   return (
     <>
+      <h6 className={playerStyles.h6}>Current Playlist: MY MIX</h6>
       <div onClick={changePlayer}>
         {player ? (
           <FaStopCircle className={playerStyles.play} />
