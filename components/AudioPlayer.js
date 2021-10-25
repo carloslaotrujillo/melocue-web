@@ -7,7 +7,7 @@ function AudioPlayer({cuePlay}) {
         cuePlay ? player.play() : player.pause();
     }, [cuePlay])
 
-    return (<audio id="audio" src="https://159.223.124.77:8000/radio.mp3"></audio>)   
+    return (<audio id="audio" src="https://radio.melocue.com:8000/radio.mp3"></audio>)   
 }
 
 export default AudioPlayer
