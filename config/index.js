@@ -1,3 +1,3 @@
 const dev = process.env.NODE_ENV !== "production";
 
-export const server = dev ? "http://localhost:3000" : "https://yumaptget.com";
+export const server = dev ? "http://localhost:3000" : "https://melocue.com";

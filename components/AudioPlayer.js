@@ -7,7 +7,7 @@ function AudioPlayer({cuePlay}) {
         cuePlay ? player.play() : player.pause();
     }, [cuePlay])
 
-    return (<audio id="audio" src="http://localhost:8080/stream"></audio>)   
+    return (<audio id="audio" src="http://159.223.124.77:8000/radio.mp3"></audio>)   
 }
 
 export default AudioPlayer
