@@ -21,10 +21,10 @@ function Player() {
           <FaPlayCircle className={playerStyles.play} />
         )}
       </div>
-      <div className={playerStyles.songInfo}>
+      {/* <div className={playerStyles.songInfo}>
         <p>Nothing Else Matters</p>
         <p>Metallica</p>
-      </div>
+      </div> */}
     </>
   );
 }
