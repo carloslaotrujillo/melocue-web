@@ -14,7 +14,7 @@ function Player() {
   return (
     <>
       <AudioPlayer cuePlay={player} />
-      <div onClick={changePlayer}>
+      <div onClickCapture={changePlayer}>
         {player ? (
           <FaPauseCircle className={playerStyles.play} />
         ) : (
