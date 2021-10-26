@@ -12,12 +12,9 @@ function Player() {
   };
 
   return (
-    <>
-      <div style={{"width":"75rem"}}>
-        <iframe src="https://melocue.com/public/melocue/embed?theme=light" frameborder="0" allowtransparency="true" style={{"width":"100%","minHeight":"250px","border":"0"}}></iframe>
-      </div>
+    <>      
       
-      {/* <AudioPlayer cuePlay={player} />
+      <AudioPlayer cuePlay={player} />
       <div onClickCapture={changePlayer}>
         {player ? (
           <FaPauseCircle className={playerStyles.play} />
@@ -25,7 +22,7 @@ function Player() {
           <FaPlayCircle className={playerStyles.play} />
         )}
       </div>
-      <div className={playerStyles.songInfo}>
+      {/* <div className={playerStyles.songInfo}>
         <p>Nothing Else Matters</p>
         <p>Metallica</p>
       </div> */}
