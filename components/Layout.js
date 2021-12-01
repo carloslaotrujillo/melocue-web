@@ -6,7 +6,7 @@ function Layout({ children }) {
     <>
       <div className={layoutStyles.container}>
         <Menu />
-        {children}
+        {children}        
       </div>
     </>
   );

@@ -14,7 +14,7 @@ function Menu() {
           <Link href="/">
             <a className={menuStyles.anchor}>Home</a>
           </Link>
-          {/* <Link href="/playlist">
+          <Link href="/playlist">
             <a className={menuStyles.anchor + " " + menuStyles.playlist}>
               Playlist
             </a>
@@ -27,7 +27,7 @@ function Menu() {
           </Link>
           <Link href="/about">
             <a className={menuStyles.anchor}>About</a>
-          </Link> */}
+          </Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
