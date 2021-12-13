@@ -1,7 +1,7 @@
 import AudioPlayer from "./AudioPlayer";
 import playerStyles from "../styles/Player.module.css";
 import { FaPlayCircle } from "react-icons/fa";
-import { FaPauseCircle } from "react-icons/fa";
+import { FaStopCircle } from "react-icons/fa";
 import { useState } from "react";
 
 function Player() {
@@ -17,7 +17,7 @@ function Player() {
       <AudioPlayer cuePlay={player} />
       <div onClickCapture={changePlayer}>
         {player ? (
-          <FaPauseCircle className={playerStyles.play} />
+          <FaStopCircle className={playerStyles.play} />
         ) : (
           <FaPlayCircle className={playerStyles.play} />
         )}
