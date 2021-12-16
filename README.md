@@ -1,3 +1,3 @@
 # Melocue FrontEnd
 
-Front End - ReactJS/NextJS\
+Front End - ReactJS/NextJS
