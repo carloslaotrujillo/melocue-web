@@ -1,4 +1,3 @@
-# Melocue Web App
+# Melocue FrontEnd
 
 Front End - ReactJS/NextJS\
-Back End - ExpressJS
