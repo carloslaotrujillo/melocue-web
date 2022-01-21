@@ -2,14 +2,14 @@
   margin-top: 3rem;
 }
 
-.play {
+.player {
   color: black;
   font-size: 15rem;
   transition: 250ms;
   margin: 1.5rem 0;
 }
 
-.play:hover {
+.player:hover {
   font-size: 15.5rem;
 }
 

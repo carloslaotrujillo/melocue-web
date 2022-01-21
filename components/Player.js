@@ -7,7 +7,7 @@ import { useState } from "react";
 function Player() {
   const [player, setPlayer] = useState(false);
 
-  const changePlayer = () => {
+  const togglePlayer = () => {
     setPlayer(!player);
   };
 
@@ -15,11 +15,11 @@ function Player() {
     <>      
       
       <AudioPlayer cuePlay={player} />
-      <div onClickCapture={changePlayer}>
+      <div onClickCapture={togglePlayer}>
         {player ? (
-          <FaStopCircle className={playerStyles.play} />
+          <FaStopCircle className={playerStyles.player} />
         ) : (
-          <FaPlayCircle className={playerStyles.play} />
+          <FaPlayCircle className={playerStyles.player} />
         )}
       </div>
       {/* <div className={playerStyles.songInfo}>
