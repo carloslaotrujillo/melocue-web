@@ -10,8 +10,8 @@ function Player() {
   const streamInfo = useRef(null);
   const volumeSaved = useRef(null);
 
-  const [player, setPlayer] = useState(false);
   const [volume, setVolume] = useState(1);
+  const [player, setPlayer] = useState(false);
   const [, setForceUpdate] = useState(Date.now());    
 
   const togglePlayer = () => {
@@ -27,6 +27,13 @@ function Player() {
     }
   } 
   
+  useEffect(() => {       
+    const htmlAudio = document.getElementById('audio');
+
+    htmlAudio.volume = volume;        
+    player ? htmlAudio.play() : htmlAudio.pause();
+  }, [player, volume])
+
   useEffect(() => {
     let opt = {
       subscriber: 'websocket',        
@@ -39,21 +46,13 @@ function Player() {
 
     sub.on("message", function(message) {       
       streamInfo.current = JSON.parse(message); 
-      setForceUpdate(Date.now());
-      console.log(streamInfo);
+      setForceUpdate(Date.now());      
     });
 
     return function cleanup() {
       sub.stop();
     };
   }, []);
-
-  useEffect(() => {       
-    const htmlAudio = document.getElementById('audio');
-
-    htmlAudio.volume = volume;        
-    player ? htmlAudio.play() : htmlAudio.pause();
-  }, [player, volume])
 
   return (
     <div className={playerStyles.playerContainer}>
