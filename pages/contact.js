@@ -45,7 +45,7 @@ function contact() {
   };
 
   //Form Submission
-  const handleFormSubmit = (event) => {    
+  const handleFormSubmit = (event) => {
     // event.preventDefault;
     // Email.send({
     //   Host: "smtp.sendgrid.net",
@@ -86,14 +86,14 @@ function contact() {
             name="name"
             value={formData.name}
             placeholder="Name *"
-            required            
+            required
           />
           <Form.Control
             type="email"
             name="email"
             value={formData.email}
             placeholder="Email *"
-            required            
+            required
           />
           <Form.Control
             value={formData.message}
@@ -101,7 +101,7 @@ function contact() {
             as="textarea"
             rows={10}
             placeholder="Message *"
-            required            
+            required
           />
         </Form.Group>
 

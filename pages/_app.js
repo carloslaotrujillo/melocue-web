@@ -12,7 +12,7 @@ Router.events.on("routeChangeError", () => NProgress.done());
 function MyApp({ Component, pageProps }) {
   return (
     <Layout>
-      <Component {...pageProps} />      
+      <Component {...pageProps} />
     </Layout>
   );
 }

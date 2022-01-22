@@ -1,15 +1,15 @@
 import Menu from "./Menu";
-import Player from './Player'
+import Player from "./Player";
 import layoutStyles from "../styles/Layout.module.css";
 
 function Layout({ children }) {
-  return (    
+  return (
     <div className={layoutStyles.container}>
       <Menu />
-      {children}        
+      {children}
       <Player />
     </div>
-  )
+  );
 }
 
 export default Layout;

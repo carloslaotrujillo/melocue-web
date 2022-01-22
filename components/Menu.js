@@ -4,42 +4,62 @@ import { Nav, Navbar } from "react-bootstrap";
 import menuStyles from "../styles/Menu.module.css";
 
 function Menu() {
-  
   const viewportBreak = 991;
   const [expanded, setExpanded] = useState(false);
   const [windowWidth, setWindowWidth] = useState();
 
-  useEffect(()=> {    
-    window.addEventListener('resize', () => {
+  useEffect(() => {
+    window.addEventListener("resize", () => {
       setWindowWidth(window.innerWidth);
-    })
-  }, [])
-  
-  const toggleNavBar = () =>  {
-    if(windowWidth <= viewportBreak ) {
+    });
+  }, []);
+
+  const toggleNavBar = () => {
+    if (windowWidth <= viewportBreak) {
       setExpanded(!expanded);
     }
-  }
-  
+  };
+
   return (
-    <Navbar expand="lg" variant="dark" className={menuStyles.container} expanded={expanded}>      
-      <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={toggleNavBar}/>
+    <Navbar
+      expand="lg"
+      variant="dark"
+      className={menuStyles.container}
+      expanded={expanded}
+    >
+      <h1 className={menuStyles.brand}>Melocue</h1>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={toggleNavBar} />
       <Navbar.Collapse id="basic-navbar-nav" className={menuStyles.collapse}>
         <Nav className={menuStyles.navLinks}>
           <Link href="/">
-            <a className={menuStyles.anchor} onClick={toggleNavBar}>Feed</a>
+            <a className={menuStyles.anchor} onClick={toggleNavBar}>
+              Home
+            </a>
           </Link>
-          <Link href="/radio">
-            <a className={menuStyles.anchor} onClick={toggleNavBar}>Radio</a>
+          <Link href="/login">
+            <a className={menuStyles.anchor} onClick={toggleNavBar}>
+              Log In
+            </a>
+          </Link>
+          <Link href="/signup">
+            <a className={menuStyles.anchor} onClick={toggleNavBar}>
+              Sign Up
+            </a>
           </Link>
           <Link href="/recommend">
-            <a className={menuStyles.anchor} onClick={toggleNavBar}>Recommend Music</a>
+            <a className={menuStyles.anchor} onClick={toggleNavBar}>
+              Recommend Music
+            </a>
           </Link>
           <Link href="/contact">
-            <a className={menuStyles.anchor} onClick={toggleNavBar}>Contact</a>
+            <a className={menuStyles.anchor} onClick={toggleNavBar}>
+              Contact
+            </a>
           </Link>
           <Link href="/about">
-            <a className={menuStyles.anchor} onClick={toggleNavBar}>About</a>
+            <a className={menuStyles.anchor} onClick={toggleNavBar}>
+              About
+            </a>
           </Link>
         </Nav>
       </Navbar.Collapse>
