@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import playerStyles from "../styles/Player.module.css";
 import { TiVolume, TiVolumeDown, TiVolumeUp, TiVolumeMute } from "react-icons/ti";
 

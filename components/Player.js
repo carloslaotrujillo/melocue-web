@@ -5,7 +5,6 @@ import { BsPause } from "react-icons/bs";
 import { useState, useEffect, useRef } from "react";
 import playerStyles from "../styles/Player.module.css";
 
-
 function Player() {
 
   const streamInfo = useRef(null);
@@ -40,8 +39,7 @@ function Player() {
 
     sub.on("message", function(message) {       
       streamInfo.current = JSON.parse(message); 
-      setForceUpdate(Date.now());
-      console.log(streamInfo);
+      setForceUpdate(Date.now());      
     });
 
     return function cleanup() {
@@ -64,11 +62,7 @@ function Player() {
       <div className={playerStyles.innerPlayer}> 
         <audio id="audio" src={process.env.NEXT_PUBLIC_RADIO_ENDPOINT} preload="auto" type="audio/mpeg"></audio>
         <div onClick={togglePlayer}>
-          {player ? (
-            <BsPause className={playerStyles.player} />
-            ) : (
-              <BsPlay className={playerStyles.player} />
-            )}
+          {player ? (<BsPause className={playerStyles.player}/>) : (<BsPlay className={playerStyles.player}/>)}
         </div>
         <div className={playerStyles.songInfoContainer}>        
             <span><strong>{streamInfo.current ? streamInfo.current.now_playing.song.title : "Loading..."}</strong></span>
