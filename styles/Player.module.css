@@ -5,32 +5,62 @@
 .playerContainer {
   width: 100%;
   display: flex;  
+  padding: 0.5rem 0;
   flex-direction: row;
   justify-content: center;
-  padding: 0.5rem 0;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
 }
 
-.innerPlayer {
+.songAlbum {
   padding: 0 1rem;
   border-right: 1px solid black;
+}
+
+.songAlbum img {
+  height: 5rem;
+  border-radius: 50%;
+}
+
+.innerPlayer {
+  display: flex;
+  padding: 0 0 0 1.5rem;
+  flex-direction: row;  
+  align-items: center;
 }
 
 .player {
   color: black;
-  font-size: 5rem;
-  transition: 250ms;
+  font-size: 4rem;
+  transition: 350ms;    
 }
+
 .player:hover {
   color: #55975a;
 }
 
-.controls,
 .songInfoContainer {    
+  height: 100%;
   display: flex;
-  padding: 0 1rem;
+  padding: 0 2rem 0 1rem;
   flex-direction: column;  
   justify-content: center;
   border-right: 1px solid black;
+}
+
+.controls {
+  display: flex;
+  padding: 0 1rem;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.volumeIcon {
+  margin: 0 4px;
+  font-size: 1.75rem ;
+}
+
+.slider {
+  margin: 0 4px;
 }

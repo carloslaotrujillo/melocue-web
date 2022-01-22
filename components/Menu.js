@@ -5,17 +5,18 @@ import menuStyles from "../styles/Menu.module.css";
 
 function Menu() {
   
+  const viewportBreak = 991;
   const [expanded, setExpanded] = useState(false);
-  const [windowWidth, setWindowWidth] = useState()
+  const [windowWidth, setWindowWidth] = useState();
 
   useEffect(()=> {    
-    window.addEventListener('resize', ()=> {
+    window.addEventListener('resize', () => {
       setWindowWidth(window.innerWidth);
     })
   }, [])
   
   const toggleNavBar = () =>  {
-    if(windowWidth <= "991" ) {
+    if(windowWidth <= viewportBreak ) {
       setExpanded(!expanded);
     }
   }
@@ -26,7 +27,7 @@ function Menu() {
       <Navbar.Collapse id="basic-navbar-nav" className={menuStyles.collapse}>
         <Nav className={menuStyles.navLinks}>
           <Link href="/">
-            <a className={menuStyles.anchor} onClick={toggleNavBar}>Home</a>
+            <a className={menuStyles.anchor} onClick={toggleNavBar}>Feed</a>
           </Link>
           <Link href="/recommend">
             <a className={menuStyles.anchor} onClick={toggleNavBar}>Recommend Music</a>
