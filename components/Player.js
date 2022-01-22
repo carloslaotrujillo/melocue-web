@@ -39,7 +39,8 @@ function Player() {
 
     sub.on("message", function(message) {       
       streamInfo.current = JSON.parse(message); 
-      setForceUpdate(Date.now());      
+      setForceUpdate(Date.now());
+      console.log(streamInfo);
     });
 
     return function cleanup() {

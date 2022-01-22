@@ -35,7 +35,8 @@
   transition: 350ms;    
 }
 
-.player:hover {
+.player:hover,
+.volumeIcon:hover {
   color: #55975a;
 }
 

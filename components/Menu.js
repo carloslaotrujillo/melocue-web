@@ -29,6 +29,9 @@ function Menu() {
           <Link href="/">
             <a className={menuStyles.anchor} onClick={toggleNavBar}>Feed</a>
           </Link>
+          <Link href="/radio">
+            <a className={menuStyles.anchor} onClick={toggleNavBar}>Radio</a>
+          </Link>
           <Link href="/recommend">
             <a className={menuStyles.anchor} onClick={toggleNavBar}>Recommend Music</a>
           </Link>
