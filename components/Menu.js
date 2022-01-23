@@ -1,22 +1,15 @@
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import menuStyles from "../styles/Menu.module.css";
 
 function Menu() {
   const viewportBreak = 991;
-  const [expanded, setExpanded] = useState(false);
-  const [windowWidth, setWindowWidth] = useState();
-
-  useEffect(() => {
-    window.addEventListener("resize", () => {
-      setWindowWidth(window.innerWidth);
-    });
-  }, []);
+  const [expandNav, setExpandNav] = useState(false);
 
   const toggleNavBar = () => {
-    if (windowWidth <= viewportBreak) {
-      setExpanded(!expanded);
+    if (window.innerWidth <= viewportBreak) {
+      setExpandNav(!expandNav);
     }
   };
 
@@ -25,7 +18,7 @@ function Menu() {
       expand="lg"
       variant="dark"
       className={menuStyles.container}
-      expanded={expanded}
+      expanded={expandNav}
     >
       <h1 className={menuStyles.brand}>Melocue</h1>
       <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={toggleNavBar} />

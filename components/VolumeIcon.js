@@ -2,8 +2,8 @@ import React from "react";
 import playerStyles from "../styles/Player.module.css";
 import {
   TiVolume,
-  TiVolumeDown,
   TiVolumeUp,
+  TiVolumeDown,
   TiVolumeMute,
 } from "react-icons/ti";
 
