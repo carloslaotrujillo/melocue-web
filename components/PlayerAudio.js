@@ -1,7 +1,6 @@
 import React from "react";
-import { BsPlay } from "react-icons/bs";
-import { BsPause } from "react-icons/bs";
 import { useState, useEffect } from "react";
+import { BsPlay, BsPause } from "react-icons/bs";
 import playerStyles from "../styles/Player.module.css";
 
 function PlayerAudio({ stream }) {
