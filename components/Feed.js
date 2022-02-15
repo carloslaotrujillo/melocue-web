@@ -12,7 +12,7 @@ function newCardDate() {
 }
 
 function Feed() {
-  // Temp Data
+  // BEGIN Temp Data
   const [cards, setCards] = useState([
     {
       id: 7,
@@ -43,6 +43,7 @@ function Feed() {
       body: "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.",
     },
   ]);
+  // END Temp Data
 
   const [newCardFromUser, setNewCardFromUser] = useState(false);
 
