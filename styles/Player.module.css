@@ -2,19 +2,22 @@
   margin-top: 3rem;
 }
 
-.playerContainer {
+.container {
+  bottom: 0;
   width: 100%;
   display: flex;  
   padding: 0.5rem 0;
   flex-direction: row;
   justify-content: center;
-  border-top: 1px solid black;
+  background-color: black;
+  position: fixed !important;
+  border-top: 1px solid white;
   border-bottom: 1px solid black;
 }
 
 .songAlbum {
   padding: 0 1rem;
-  border-right: 1px solid black;
+  border-right: 1px solid white;
 }
 
 .songAlbum img {
@@ -30,7 +33,7 @@
 }
 
 .player {
-  color: black;
+  color: white;
   font-size: 4rem;
   transition: 350ms;    
 }
@@ -43,10 +46,11 @@
 .songInfoContainer {    
   height: 100%;
   display: flex;
+  color: white;
   padding: 0 2rem 0 1rem;
   flex-direction: column;  
   justify-content: center;
-  border-right: 1px solid black;
+  border-right: 1px solid white;
 }
 
 .controls {
@@ -59,7 +63,8 @@
 
 .volumeIcon {
   margin: 0 4px;
-  font-size: 1.75rem ;
+  color: white;
+  font-size: 1.75rem;
 }
 
 .slider {

@@ -32,7 +32,7 @@ function Player() {
   }, []);
 
   return (
-    <div className={playerStyles.playerContainer}>
+    <div className={playerStyles.container}>
       <PlayerImage stream={streamInfo} />
       <PlayerAudio stream={streamInfo} />
       <PlayerVolume />

@@ -1,6 +1,7 @@
 .container {
   width: 100%;
   background-color: black;
+  position: fixed !important;
   border-bottom: 1px solid lightgray;
 }
 
