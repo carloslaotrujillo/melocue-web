@@ -1,81 +1,44 @@
-import { useState } from "react";
+import emailjs from 'emailjs-com';
+import { useState, useRef } from "react";
 import { Form, Button } from "react-bootstrap";
 import recommendStyles from "../styles/Recommend.module.css";
 
 function contact() {
-  //smtp.js
-  const Email = {
-    send: function (a) {
-      return new Promise(function (n, e) {
-        (a.nocache = Math.floor(1e6 * Math.random() + 1)), (a.Action = "Send");
-        var t = JSON.stringify(a);
-        Email.ajaxPost("https://smtpjs.com/v3/smtpjs.aspx?", t, function (e) {
-          n(e);
-        });
-      });
-    },
-    ajaxPost: function (e, n, t) {
-      var a = Email.createCORSRequest("POST", e);
-      a.setRequestHeader("Content-type", "application/x-www-form-urlencoded"),
-        (a.onload = function () {
-          var e = a.responseText;
-          null != t && t(e);
-        }),
-        a.send(n);
-    },
-    ajax: function (e, n) {
-      var t = Email.createCORSRequest("GET", e);
-      (t.onload = function () {
-        var e = t.responseText;
-        null != n && n(e);
-      }),
-        t.send();
-    },
-    createCORSRequest: function (e, n) {
-      var t = new XMLHttpRequest();
-      return (
-        "withCredentials" in t
-          ? t.open(e, n, !0)
-          : "undefined" != typeof XDomainRequest
-          ? (t = new XDomainRequest()).open(e, n)
-          : (t = null),
-        t
-      );
-    },
-  };
 
-  //Form Submission
-  const handleFormSubmit = (event) => {
-    // event.preventDefault;
-    // Email.send({
-    //   Host: "smtp.sendgrid.net",
-    //   Username: "apikey",
-    //   Password:
-    //     "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",
-    //   To: "krloslao90@gmail.com",
-    //   From: "melocue@gmail.com",
-    //   Subject: "Melocue Contact Form Submission",
-    //   Body: "TEST_76",
-    // })
-    //   .then((message) => console.log(message))
-    //   .catch((error) => console.log(error));
-  };
+  const form = useRef();
 
-  //State
-  const [formData, setFormData] = useState({
+  const formInitialState = {
     name: "",
     email: "",
-    message: "",
-  });
+    message: ""
+  }
+
+  const [formData, setFormData] = useState(formInitialState);
 
   const formDataChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    emailjs.sendForm(
+      process.env.NEXT_PUBLIC_EMAIL_SERVICE,
+      process.env.NEXT_PUBLIC_EMAIL_TEMPLATE,
+      form.current,
+      process.env.NEXT_PUBLIC_EMAIL_USERID
+      )
+      .then((result) => {
+          alert("Thanks for reaching us, we will be contacting you soon!");
+          setFormData(formInitialState);
+      }, (error) => {
+          alert(error.text);
+      });
+  };
+
   return (
     <div className="container">
       <h1>Contact Us</h1>
-      <Form className={recommendStyles.form} onSubmit={handleFormSubmit}>
+      <Form className={recommendStyles.form} onSubmit={handleFormSubmit} ref={form}>
         <Form.Group
           controlId="FormEmail"
           className={recommendStyles.formGroup}

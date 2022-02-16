@@ -1,6 +1,7 @@
 import React from "react";
+import ReactTooltip from 'react-tooltip';
 import cardStyles from "../styles/Card.module.css";
-import {BiLike, BiDislike, BiCommentAdd, BiShareAlt, BiSave, BiImport} from "react-icons/bi"
+import {BiLike, BiDislike, BiCommentAdd, BiShareAlt, BiBookmarkPlus, BiImport} from "react-icons/bi"
 
 function Card({ cardData }) {
   return (
@@ -16,12 +17,13 @@ function Card({ cardData }) {
         <p>{cardData.body}</p>
       </div>
       <div className={cardStyles.innerFooter}>
-        <a href="#"><BiLike /></a>
-        <a href="#"><BiDislike /></a>
-        <a href="#"><BiCommentAdd /></a>
-        <a href="#"><BiShareAlt /></a>
-        <a href="#"><BiSave /></a>
-        <a href="#"><BiImport /></a>
+        <a data-tip="Like" href="#"><BiLike /></a>
+        <a data-tip="Dislike" href="#"><BiDislike /></a>
+        <a data-tip="Add Comment" href="#"><BiCommentAdd /></a>
+        <a data-tip="Share" href="#"><BiShareAlt /></a>
+        <a data-tip="Bookmark" href="#"><BiBookmarkPlus /></a>
+        <a data-tip="Import" href="#"><BiImport /></a>
+        <ReactTooltip />
       </div>
     </div>
   );

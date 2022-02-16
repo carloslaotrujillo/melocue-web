@@ -1,8 +1,7 @@
-- Add Login, Logout, SignIn, password recovery functionality (With Spotify/AppleMusic/Youtube)
-- Add Post with comments likes, and "add to playlist"
-- Finish recommend music form
 - Finish Contact us form
-- Sync music with labels after pause (music needs to keep going foward)
+- Finish recommend music form
+- Add Login, Logout, SignIn, password recovery functionality (With Spotify/AppleMusic/Youtube)
+- Add Post with comments likes, and "add to playlist", and link to DB
 - Import/edit and push playslist to streaming services
 - General Polish and WOW design and colors
 
