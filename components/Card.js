@@ -1,5 +1,6 @@
 import React from "react";
 import cardStyles from "../styles/Card.module.css";
+import {BiLike, BiDislike, BiCommentAdd, BiShareAlt, BiSave, BiImport} from "react-icons/bi"
 
 function Card({ cardData }) {
   return (
@@ -15,11 +16,12 @@ function Card({ cardData }) {
         <p>{cardData.body}</p>
       </div>
       <div className={cardStyles.innerFooter}>
-        <a href="#">Like</a>
-        <a href="#">Comment</a>
-        <a href="#">Share</a>
-        <a href="#">Save</a>
-        <a href="#">Import</a>
+        <a href="#"><BiLike /></a>
+        <a href="#"><BiDislike /></a>
+        <a href="#"><BiCommentAdd /></a>
+        <a href="#"><BiShareAlt /></a>
+        <a href="#"><BiSave /></a>
+        <a href="#"><BiImport /></a>
       </div>
     </div>
   );

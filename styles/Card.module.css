@@ -1,6 +1,7 @@
 .container {
-  width: 350px;
+  width: 250px;
   display: flex;
+  margin: 0.75rem;
   border-radius: 4px;
   padding-bottom: 1rem;
   flex-direction: column;
@@ -9,7 +10,7 @@
 
 .innerImage img {
   width: 100%;
-  height: 350px;
+  height: 200px;
   border-radius: 4px 4px 0 0;
 }
 
@@ -17,18 +18,39 @@
   width: 100%;
   display: flex;
   flex-direction: row;
+  font-size: 4px;
   padding: 1rem 1rem 0;
   justify-content: space-between;
+}
+
+.innerHeader h5,
+.innerHeader h6 {
+  font-size: small;
 }
 
 .innerBody {
   padding: 0 1rem;
 }
 
+.innerBody p {
+  width: 100%;
+  height: 75px;
+  overflow: hidden;
+  font-size: x-small;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
 .innerFooter {
   display: flex;
   padding: 0 1rem;
   flex-direction: row;
+  justify-content: space-around;
+}
+
+.innerFooter a {
+  font-size: medium;
 }
 
 .newCardForm {
