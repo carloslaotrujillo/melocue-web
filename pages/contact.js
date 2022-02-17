@@ -3,11 +3,11 @@ import { useState, useRef } from "react";
 import { Form, Button } from "react-bootstrap";
 import recommendStyles from "../styles/Recommend.module.css";
 
-function contact() {
+function Contact() {
 
   const buttonInitialState = {
     disable: false,
-    label: "Submit" 
+    label: "Submit"
   }
 
   const formInitialState = {
@@ -43,7 +43,7 @@ function contact() {
       process.env.NEXT_PUBLIC_EMAIL_USERID
       )
       .then((result) => {
-        resetForm();    
+        resetForm();
         console.log(result);
         alert("Thanks for reaching us, we will be contacting you soon!");
       }, (error) => {
@@ -95,4 +95,4 @@ function contact() {
   );
 }
 
-export default contact;
+export default Contact;

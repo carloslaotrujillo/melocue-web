@@ -61,7 +61,7 @@ function Feed() {
         date: newCardDate(),
         body: card.body,
       },
-      ...cards,
+      ...cards
     ]);
   }
 

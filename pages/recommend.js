@@ -1,7 +1,7 @@
 import { Form, Button } from "react-bootstrap";
 import recommendStyles from "../styles/Recommend.module.css";
 
-function recommend() {
+function Recommend() {
   return (
     <div className="container">
       <h1>Recommend Music</h1>
@@ -28,4 +28,4 @@ function recommend() {
   );
 }
 
-export default recommend;
+export default Recommend;

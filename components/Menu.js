@@ -13,6 +13,8 @@ function Menu() {
     }
   };
 
+  const [userLogged, setUserLogged] = useState(false) // Temp Value
+
   return (
     <Navbar
       expand="lg"
@@ -29,19 +31,28 @@ function Menu() {
               Home
             </a>
           </Link>
-          <Link href="/login">
-            <a className={menuStyles.anchor} onClick={toggleNavBar}>
-              Log In
-            </a>
-          </Link>
-          <Link href="/signup">
-            <a className={menuStyles.anchor} onClick={toggleNavBar}>
-              Sign Up
-            </a>
-          </Link>
+          {userLogged && (
+            <>
+              <Link href="/login">
+                <a className={menuStyles.anchor} onClick={toggleNavBar}>
+                  Log In
+                </a>
+              </Link>
+              <Link href="/signup">
+                <a className={menuStyles.anchor} onClick={toggleNavBar}>
+                  Sign Up
+                </a>
+              </Link>
+            </>
+          )}
           <Link href="/recommend">
             <a className={menuStyles.anchor} onClick={toggleNavBar}>
               Recommend Music
+            </a>
+          </Link>
+          <Link href="/donate">
+            <a className={menuStyles.anchor} onClick={toggleNavBar}>
+              Donate
             </a>
           </Link>
           <Link href="/contact">

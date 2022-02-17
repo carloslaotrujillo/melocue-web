@@ -1,6 +1,6 @@
 import aboutStyles from "../styles/About.module.css";
 
-function about() {
+function About() {
   return (
     <div className="container">
       <h1>About</h1>
@@ -14,4 +14,4 @@ function about() {
   );
 }
 
-export default about;
+export default About;
