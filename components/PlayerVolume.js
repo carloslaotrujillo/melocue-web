@@ -22,7 +22,7 @@ function PlayerVolume() {
 
   return (
     <div className={playerStyles.controls}>
-      <div onClick={toggleVolumeMute}>
+      <div className={playerStyles.volumeContainer} onClick={toggleVolumeMute}>
         <VolumeIcon volume={volume} />
       </div>
       <input

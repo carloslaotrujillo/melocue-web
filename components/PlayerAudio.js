@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { BsPlay, BsPause } from "react-icons/bs";
+import { FaPlayCircle, FaStopCircle } from "react-icons/fa";
 import playerStyles from "../styles/Player.module.css";
 
 function PlayerAudio({ stream }) {
@@ -25,9 +25,9 @@ function PlayerAudio({ stream }) {
       ></audio>
       <div onClick={togglePlayer}>
         {player ? (
-          <BsPause className={playerStyles.player} />
+          <FaStopCircle className={playerStyles.player} />
         ) : (
-          <BsPlay className={playerStyles.player} />
+          <FaPlayCircle className={playerStyles.player} />
         )}
       </div>
       <div className={playerStyles.songInfoContainer}>
