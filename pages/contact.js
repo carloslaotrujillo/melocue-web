@@ -5,7 +5,10 @@ import recommendStyles from "../styles/Recommend.module.css";
 
 function contact() {
 
-  const form = useRef();
+  const buttonInitialState = {
+    disable: false,
+    label: "Submit" 
+  }
 
   const formInitialState = {
     name: "",
@@ -13,14 +16,26 @@ function contact() {
     message: ""
   }
 
+  const form = useRef();
+  const[button, setButton] = useState(buttonInitialState);
   const [formData, setFormData] = useState(formInitialState);
 
   const formDataChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
+  const resetForm = () => {
+      setButton(buttonInitialState);
+      setFormData(formInitialState);
+  }
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    setButton({
+      disable: true,
+      label: "Loading..."
+    })
+
     emailjs.sendForm(
       process.env.NEXT_PUBLIC_EMAIL_SERVICE,
       process.env.NEXT_PUBLIC_EMAIL_TEMPLATE,
@@ -28,11 +43,15 @@ function contact() {
       process.env.NEXT_PUBLIC_EMAIL_USERID
       )
       .then((result) => {
-          alert("Thanks for reaching us, we will be contacting you soon!");
-          setFormData(formInitialState);
+        resetForm();    
+        console.log(result);
+        alert("Thanks for reaching us, we will be contacting you soon!");
       }, (error) => {
-          alert(error.text);
+        resetForm();
+        console.log(error);
+        alert("Failed to submit form, please try again later.");
       });
+
   };
 
   return (
@@ -68,8 +87,8 @@ function contact() {
           />
         </Form.Group>
 
-        <Button variant="dark" type="submit">
-          Submit
+        <Button variant="dark" type="submit" disabled={button.disable}>
+          {button.label}
         </Button>
       </Form>
     </div>
