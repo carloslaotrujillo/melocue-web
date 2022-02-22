@@ -4,5 +4,12 @@
 - Import/edit and push playslist to streaming services
 - General Polish and WOW design and colors
 - Add donate page with payment processing
+- Player works on Mobile
+- Add mobile friendly design
+- TailwindCSS + Styled comp ?
+- TypeScript
+- Add Redux for State management
+- Add GraphQL
+- AWS Lambda? 
 
 * Make the platform as is a playlist manager, import, edit, search across platform and feed, and push(sync) with your account on Spotify/AppleMusic/Youtube
