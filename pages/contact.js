@@ -38,7 +38,7 @@ function Contact() {
 
     emailjs.sendForm(
       process.env.NEXT_PUBLIC_EMAIL_SERVICE,
-      process.env.NEXT_PUBLIC_EMAIL_TEMPLATE,
+      process.env.NEXT_PUBLIC_CONTACT_TEMPLATE,
       form.current,
       process.env.NEXT_PUBLIC_EMAIL_USERID
       )
