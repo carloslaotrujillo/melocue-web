@@ -2,7 +2,7 @@ import React from 'react'
 
 function Donate() {
   return (
-    <div>donate</div>
+    <h1>donate</h1>
   )
 }
 

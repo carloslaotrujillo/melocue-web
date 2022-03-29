@@ -50,11 +50,11 @@ function Menu() {
               Recommend Music
             </a>
           </Link>
-          {/* <Link href="/donate">
+          <Link href="/donate">
             <a className={menuStyles.anchor} onClick={toggleNavBar}>
               Donate
             </a>
-          </Link> */}
+          </Link>
           <Link href="/contact">
             <a className={menuStyles.anchor} onClick={toggleNavBar}>
               Contact

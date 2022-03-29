@@ -1,15 +1,14 @@
-- Finish recommend music form
-- Add Login, Logout, SignIn, password recovery functionality (With Spotify/AppleMusic/Youtube)
-- Add Post with comments likes, and "add to playlist", and link to DB
-- Import/edit and push playslist to streaming services
-- General Polish and WOW design and colors
-- Add donate page with payment processing
-- Player works on Mobile
-- Add mobile friendly design
-- TailwindCSS + Styled comp ?
-- TypeScript
+Controller
 - Add Redux for State management
-- Add GraphQL
-- AWS Lambda? 
+- Add Post with comments likes, and "add to playlist", and link to DB
+- Add donate page with payment processing
+- Import/edit and push playslist to streaming services
+- Add Login, Logout, SignIn, password recovery functionality (With Spotify/AppleMusic/Youtube)
+
+View
+- Player works on Mobile
+- Mobile friendly design
+- General Polish and WOW design and colors
+- TailwindCSS + Styled comp?
 
 * Make the platform as is a playlist manager, import, edit, search across platform and feed, and push(sync) with your account on Spotify/AppleMusic/Youtube
