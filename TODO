@@ -1,9 +1,14 @@
+DOING NOW
+getting up the server (Listio)
+
 Controller
 - Add Redux for State management
 - Add Post with comments likes, and "add to playlist", and link to DB
 - Add donate page with payment processing
 - Import/edit and push playslist to streaming services
-- Add Login, Logout, SignIn, password recovery functionality (With Spotify/AppleMusic/Youtube)
+- Add Login, Logout, SignIn, password recovery functionality (With Spotify/AppleMusic/Youtube) (Firebase)
+- Enzime & Jest Test
+- Migrate to TypeScript
 
 View
 - Player works on Mobile
