@@ -1,6 +1,6 @@
 import React from "react";
 import ReactTooltip from 'react-tooltip';
-import cardStyles from "../styles/Card.module.css";
+import cardStyles from "./card.module.scss";
 import {BiLike, BiDislike, BiCommentAdd, BiShareAlt, BiBookmarkPlus, BiImport} from "react-icons/bi"
 
 function Card({ cardData }) {

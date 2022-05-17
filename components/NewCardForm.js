@@ -1,5 +1,5 @@
 import React from "react";
-import cardStyles from "../styles/Card.module.css";
+import cardStyles from "./card/card.module.scss";
 
 function NewCardForm({show, createCard}) {
 

@@ -1,4 +1,4 @@
-import Card from "./Card";
+import Card from "./card/card.component";
 import NewCardForm from "./NewCardForm";
 import React, { useState, useEffect } from "react";
 import feedStyles from "../styles/Feed.module.css";
