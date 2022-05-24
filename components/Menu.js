@@ -31,20 +31,16 @@ function Menu() {
               Home
             </a>
           </Link>
-          {userLogged && (
-            <>
-              <Link href="/login">
-                <a className={menuStyles.anchor} onClick={toggleNavBar}>
-                  Log In
-                </a>
-              </Link>
-              <Link href="/signup">
-                <a className={menuStyles.anchor} onClick={toggleNavBar}>
-                  Sign Up
-                </a>
-              </Link>
-            </>
-          )}
+          <Link href="/login">
+            <a className={menuStyles.anchor} onClick={toggleNavBar}>
+              Log In
+            </a>
+          </Link>
+          <Link href="/signup">
+            <a className={menuStyles.anchor} onClick={toggleNavBar}>
+              Sign Up
+            </a>
+          </Link>
           <Link href="/recommend">
             <a className={menuStyles.anchor} onClick={toggleNavBar}>
               Recommend Music
