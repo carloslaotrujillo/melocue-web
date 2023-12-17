@@ -1,0 +1,1 @@
+- get a new logo (favicon.png)
