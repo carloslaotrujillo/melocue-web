@@ -33,8 +33,8 @@ export default function NavBar() {
                     ))}
                 </div>
                 <div className="flex flex-1 items-center justify-end gap-x-6">
-                    <a href="/login" className="hidden lg:block lg:text-sm lg:font-semibold lg:leading-6 lg:text-gray-900">
-                        Log in
+                    <a href="/signin" className="hidden lg:block lg:text-sm lg:font-semibold lg:leading-6 lg:text-gray-900">
+                        Sign in
                     </a>
                     <a
                         href="/signup"
@@ -96,10 +96,10 @@ export default function NavBar() {
                             </div>
                             <div className="py-6">
                                 <a
-                                    href="/login"
+                                    href="/signin"
                                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                 >
-                                    Log in
+                                    Sign in
                                 </a>
                             </div>
                         </div>
