@@ -1,5 +1,8 @@
 "use client"
 
+import SearchBar from './SearchBar'
+import Image from 'next/image';
+
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
@@ -19,11 +22,14 @@ export default function NavBar() {
     return (
         <header className="bg-lime-400 w-full">
             <nav className="mx-auto flex max-w-7xl items-center justify-between gap-x-6 p-6 lg:px-8" aria-label="Global">
-                <div className="flex lg:flex-1">
+                <div className="flex">
                     <a href="/" className="-m-1.5 p-1.5">
-                        <span className="sr-only">Your Company</span>
-                        <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+                        <span className="sr-only">Melocue</span>
+                        <Image src="/favicon.png" alt="Melocue" width={32} height={32} className="h-8 w-auto"/>                        
                     </a>
+                </div>
+                <div className="flex-1 flex items-center justify-center lg:justify-center">
+                    <SearchBar />
                 </div>
                 <div className="hidden lg:flex lg:gap-x-12">
                     {navigation.map((item) => (
@@ -32,7 +38,7 @@ export default function NavBar() {
                         </a>
                     ))}
                 </div>
-                <div className="flex flex-1 items-center justify-end gap-x-6">
+                <div className="flex lg:flex-1 items-center justify-end gap-x-6">
                     <a href="/signin" className="hidden lg:block lg:text-sm lg:font-semibold lg:leading-6 lg:text-gray-900">
                         Sign in
                     </a>

@@ -12,3 +12,23 @@ TO IMPLEMENT FIRST
 
 - Analytics from data from music services
   - See analytics of user's data pulled from music services, make conclusions and do sentiment analysis based on music and social data
+
+
+SPECIFIC TODOS
+ 
+- [ ] Convert all images to nextjs images
+
+
+- [ ] Add a new page for the user to see their own profile
+- [ ] Add a new page for the user to see their own playlists
+- [ ] Add a new page for the user to see their own feed
+- [ ] Add a new page for the user to see their own marketplace
+- [ ] Add a new page for the user to see their own analytics
+- [ ] Add a new page for the user to see their own settings
+- [ ] Add a new page for the user to see their own notifications
+- [ ] Add a new page for the user to see their own messages
+- [ ] Add a new page for the user to see their own friends
+- [ ] Add a new page for the user to see their own followers
+- [ ] Add a new page for the user to see their own following
+- [ ] Add a new page for the user to see their own search results
+- [ ] Add a new page for the user to see their own music services
