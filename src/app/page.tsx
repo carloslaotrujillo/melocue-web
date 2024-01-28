@@ -1,9 +1,12 @@
-import React from 'react';
+import Homepage from "./homepage/page";
 
-function Page(props) {
-    return (
-        <div>home</div>
-    );
+function Page() {  
+  return (    
+    <main>
+        <Homepage />
+    </main>    
+  )
 }
+
 
 export default Page;

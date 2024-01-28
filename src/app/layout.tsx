@@ -1,27 +1,34 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import NavBar from './_components/NavBar/NavBar';
+"use client";
 
-const inter = Inter({ subsets: ['latin'] })
+import "./globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { usePathname } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: 'Melocue',
-  description: 'The ultimate social network tailored for audio enthusiasts',
-}
+import NavBar from "./_components/NavBar/NavBar";
+import Footer from "./_components/Footer/Footer";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-      <html lang="en">
-        <link rel="icon" href="/favicon.png" sizes="any"/>
-        <body className={inter.className}>
-            <NavBar />
-            {children}
-        </body>
-      </html>
-  )
+const inter = Inter({ subsets: ["latin"] });
+
+const FooterRender = () => {
+	const path = usePathname();
+
+	if (path === "/signup" || path === "/signin") {
+		return null;
+	} else {
+		return <Footer />;
+	}
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+	return (
+		<html lang="en">
+			<link rel="icon" href="/favicon.png" sizes="any" />
+			<body className={inter.className + " flex flex-col min-h-screen"}>
+				<NavBar />
+				<main className="flex-grow">{children}</main>
+				{FooterRender()}
+			</body>
+		</html>
+	);
 }
