@@ -1,12 +1,11 @@
-import Homepage from "./homepage/page";
+import Homepage from "./homepage/Page";
 
-function Page() {  
-  return (    
-    <main>
-        <Homepage />
-    </main>    
-  )
+function Page() {
+	return (
+		<main>
+			<Homepage />
+		</main>
+	);
 }
-
 
 export default Page;
