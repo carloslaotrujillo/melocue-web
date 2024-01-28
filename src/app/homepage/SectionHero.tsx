@@ -1,4 +1,4 @@
-import NextImage from "../_components/Image/Image";
+import NextImage from "../_components/NextImage/NextImage";
 
 const SectionHero: React.FC = () => {
 	return (

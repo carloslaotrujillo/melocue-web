@@ -1,5 +1,5 @@
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/20/solid";
-import NextImage from "../_components/Image/Image";
+import NextImage from "../_components/NextImage/NextImage";
 
 const page = {
 	name: "Ricardo Cooper",
