@@ -1,6 +1,6 @@
 import NextImage from "../_components/NextImage/NextImage";
 
-const SectionHero: React.FC = () => {
+const SectionHero = () => {
 	return (
 		<div className="relative isolate">
 			<svg
