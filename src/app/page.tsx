@@ -2,9 +2,9 @@ import Homepage from "./homepage/Page";
 
 function Page() {
 	return (
-		<main>
+		<>
 			<Homepage />
-		</main>
+		</>
 	);
 }
 
