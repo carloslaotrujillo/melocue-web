@@ -17,7 +17,9 @@ TO IMPLEMENT FIRST
 SPECIFIC TODOS
 - [ ] Change the name of the auth provider
 - [ ] Convert all images to nextjs images (refactor NextImage component)
-- [ ] Add auth with redirect for mobile screens 
+- [ ] Add auth with redirect for mobile screens
+- [ ] Implement remember me and forgot password
+ 
 - [ ] Add a new page for the user to see their own profile
 - [ ] Add a new page for the user to see their own playlists
 - [ ] Add a new page for the user to see their own feed

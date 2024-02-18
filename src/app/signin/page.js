@@ -1,11 +1,62 @@
 "use client";
 import Logo from "../_components/Logo/Logo";
-import { signInWithGooglePopup, createUserDocumentFromAuth } from "../_utils/firebase/firebase.utils";
+import { useState } from "react";
+import {
+	signInWithGooglePopup,
+	signInAuthUserWithEmailAndPassword,
+	signInWithFacebookPopup,
+} from "../_utils/firebase/firebase.utils";
+
+const defaultFormFields = {
+	email: "",
+	password: "",
+};
 
 function Page() {
+	const [formFields, setFormFields] = useState(defaultFormFields);
+	const { email, password } = formFields;
+
+	const resetFormFields = () => {
+		setFormFields(defaultFormFields);
+	};
+
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+
+		try {
+			await signInAuthUserWithEmailAndPassword(email, password);
+			alert("User signed in");
+			resetFormFields();
+		} catch (error) {
+			if (error.code === "auth/invalid-credential") {
+				alert("Invalid credentials");
+			} else {
+				alert("Error signing in user");
+			}
+		}
+	};
+
+	const handleChange = (event) => {
+		const { name, value } = event.target;
+		setFormFields({ ...formFields, [name]: value });
+	};
+
 	const logGoogleUser = async () => {
-		const { user } = await signInWithGooglePopup();
-		const userDocRef = await createUserDocumentFromAuth(user);
+		try {
+			const { user } = await signInWithGooglePopup();
+			console.log(user);
+		} catch (error) {
+			console.error("Error creating user", error.message);
+		}
+	};
+
+	const logFacebookUser = async () => {
+		try {
+			const { user } = await signInWithFacebookPopup();
+			console.log(user);
+		} catch (error) {
+			console.error("Error creating user", error.message);
+		}
 	};
 
 	return (
@@ -20,7 +71,7 @@ function Page() {
 
 				<div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
 					<div className="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
-						<form className="space-y-6" action="#" method="POST">
+						<form onSubmit={handleSubmit} className="space-y-6">
 							<div>
 								<label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
 									Email Address
@@ -30,6 +81,8 @@ function Page() {
 										id="email"
 										name="email"
 										type="email"
+										value={email}
+										onChange={handleChange}
 										autoComplete="email"
 										required
 										className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -46,6 +99,8 @@ function Page() {
 										id="password"
 										name="password"
 										type="password"
+										value={password}
+										onChange={handleChange}
 										autoComplete="current-password"
 										required
 										className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -53,7 +108,8 @@ function Page() {
 								</div>
 							</div>
 
-							<div className="flex items-center justify-between">
+							{/* TODO: Implement remember me and forgot password */}
+							{/* <div className="flex items-center justify-between">
 								<div className="flex items-center">
 									<input
 										id="remember-me"
@@ -71,7 +127,7 @@ function Page() {
 										Forgot password?
 									</a>
 								</div>
-							</div>
+							</div> */}
 
 							<div>
 								<button
@@ -125,21 +181,7 @@ function Page() {
 
 								<a
 									href="#"
-									className="flex w-full items-center justify-center gap-3 rounded-md bg-white px-3 py-1.5 text-black border border-solid border-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#24292F]"
-								>
-									<svg className="h-6 w-6" viewBox="0 0 24 24" aria-hidden="true">
-										<g>
-											<path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.675.95 3.6.95.865 0 2.222-1.01 3.902-1.01.613 0 2.886.06 4.374 2.19-.13.09-2.383 1.37-2.383 4.19 0 3.26 2.854 4.42 2.955 4.45z"></path>
-										</g>
-									</svg>
-									<span className="text-sm font-semibold leading-6">Apple</span>
-								</a>
-							</div>
-
-							<div className="mt-6 grid grid-cols-2 gap-4">
-								<a
-									href="#"
-									onClick={logGoogleUser}
+									onClick={logFacebookUser}
 									className="flex w-full items-center justify-center gap-3 rounded-md bg-white border border-solid border-black px-3 py-1.5 text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0]"
 								>
 									<svg
@@ -159,18 +201,6 @@ function Page() {
 										></path>
 									</svg>
 									<span className="text-sm font-semibold leading-6">Facebook</span>
-								</a>
-
-								<a
-									href="#"
-									className="flex w-full items-center justify-center gap-3 rounded-md bg-white px-3 py-1.5 text-black border border-solid border-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#24292F]"
-								>
-									<svg className="h-6 w-6" viewBox="0 0 24 24" aria-hidden="true">
-										<g>
-											<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
-										</g>
-									</svg>
-									<span className="text-sm font-semibold leading-6">Twitter (X)</span>
 								</a>
 							</div>
 						</div>
