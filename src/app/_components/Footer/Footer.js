@@ -79,7 +79,8 @@ function Footer() {
 				<p className="mt-6 text-center text-xs leading-5 text-gray-900">
 					&copy; {new Date().getFullYear()} Melocue, Inc. All rights reserved.
 				</p>
-				<p className="mt-3 text-center text-[10px] leading-5 text-gray-900">
+				{/* Footer Pages */}
+				{/* <p className="mt-3 text-center text-[10px] leading-5 text-gray-900">
 					<a href="/privacy-policy" className="hover:text-indigo-600 mx-2">
 						Privacy Policy
 					</a>
@@ -89,7 +90,7 @@ function Footer() {
 					<a href="/data-deletion-request" className="hover:text-indigo-600 mx-2">
 						Data Deletion
 					</a>
-				</p>
+				</p> */}
 			</div>
 		</footer>
 	);
