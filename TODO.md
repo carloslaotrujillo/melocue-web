@@ -1,24 +1,22 @@
 GENERAL TODOS
-- get a new logo (favicon.png)
+- [ ] Properly integrate eslint and prettier
+- [ ] Integrate env variable on teh cloud (HashiCorp Vault, Infisical, Doppler, etc)
 
 TO IMPLEMENT FIRST
-- Social Networking Features
+- [ ] Social Networking Features
   - Core to any social platform; allows for basic user registration, profile creation, and following other users.
   - Enable users to create, share, and explore playlists.
   - Allow user to post to app feed, comment, upvote etc...
   
-- Marketplace
+- [ ] Marketplace
   - Allow user to sell / buy product from the platform from other users or new products from approved vendors/stores
 
-- Analytics from data from music services
+- [ ] Analytics from data from music services
   - See analytics of user's data pulled from music services, make conclusions and do sentiment analysis based on music and social data
-
 
 SPECIFIC TODOS
  
-- [ ] Convert all images to nextjs images
-
-
+- [ ] Convert all images to nextjs images (refactor NextImage component)
 - [ ] Add a new page for the user to see their own profile
 - [ ] Add a new page for the user to see their own playlists
 - [ ] Add a new page for the user to see their own feed
