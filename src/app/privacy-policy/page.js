@@ -1,6 +1,6 @@
 import React from "react";
 
-function Page() {
+function PrivacyPolicy() {
 	return (
 		<div className="flex min-h-full flex-1 flex-col justify-start py-12 sm:px-6 lg:px-8">
 			<h1>Privacy Policy</h1>
@@ -25,4 +25,4 @@ function Page() {
 	);
 }
 
-export default Page;
+export default PrivacyPolicy;
