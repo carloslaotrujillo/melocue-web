@@ -1,6 +1,6 @@
 GENERAL TODOS
 - [ ] Properly integrate eslint and prettier
-- [ ] Integrate env variable on teh cloud (HashiCorp Vault, Infisical, Doppler, etc)
+- [ ] Integrate env variable on the cloud (HashiCorp Vault, Infisical, Doppler, etc)
 
 TO IMPLEMENT FIRST
 - [ ] Social Networking Features
@@ -15,8 +15,6 @@ TO IMPLEMENT FIRST
   - See analytics of user's data pulled from music services, make conclusions and do sentiment analysis based on music and social data
 
 SPECIFIC TODOS
-- [ ] Change the name of the auth provider
-- [ ] Convert all images to nextjs images (refactor NextImage component)
 - [ ] Add auth with redirect for mobile screens
 - [ ] Implement remember me and forgot password
  

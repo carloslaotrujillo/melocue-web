@@ -4,6 +4,7 @@ import { Fragment, useState } from "react";
 import { Dialog, Disclosure, Popover, Tab, Transition } from "@headlessui/react";
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { ChevronDownIcon, PlusIcon } from "@heroicons/react/20/solid";
+import NextImage from "../_components/NextImage/NextImage";
 
 const navigation = {
 	categories: [
@@ -359,7 +360,7 @@ const products = [
 		price: "$699",
 		description: "The classic Fender Stratocaster, perfect for all levels of players.",
 		options: "Available in various colors",
-		imageSrc: "",
+		imageSrc: "https://picsum.photos/278/834",
 		imageAlt: "Fender Stratocaster in sunburst color.",
 	},
 	{
@@ -369,7 +370,7 @@ const products = [
 		price: "$999",
 		description: "Complete drum set with high-quality Yamaha sound, suitable for both beginners and professionals.",
 		options: "Various configurations",
-		imageSrc: "",
+		imageSrc: "https://picsum.photos/278/834",
 		imageAlt: "Yamaha Stage Custom Drum Set in natural wood finish.",
 	},
 	{
@@ -379,7 +380,7 @@ const products = [
 		price: "$2,499",
 		description: "Iconic Gibson Les Paul Standard, renowned for its rich tone and sustain.",
 		options: "Multiple finishes available",
-		imageSrc: "",
+		imageSrc: "https://picsum.photos/278/834",
 		imageAlt: "Gibson Les Paul Standard in cherry sunburst.",
 	},
 	{
@@ -389,7 +390,7 @@ const products = [
 		price: "$1,599",
 		description: "Top-of-the-line electronic drum set with a realistic playing feel.",
 		options: "Advanced features",
-		imageSrc: "",
+		imageSrc: "https://picsum.photos/278/834",
 		imageAlt: "Roland TD-17KVX Electronic Drum Set.",
 	},
 	{
@@ -399,7 +400,7 @@ const products = [
 		price: "$450",
 		description: "Versatile digital piano with natural weighted keys and rich sounds.",
 		options: "Includes music rest and pedal",
-		imageSrc: "",
+		imageSrc: "https://picsum.photos/278/834",
 		imageAlt: "Korg B2 Digital Piano in black.",
 	},
 	{
@@ -409,7 +410,7 @@ const products = [
 		price: "$99",
 		description: "Legendary Shure SM58 dynamic vocal microphone, known for its durability and clarity.",
 		options: "Standard model",
-		imageSrc: "",
+		imageSrc: "https://picsum.photos/278/834",
 		imageAlt: "Shure SM58 Microphone.",
 	},
 	{
@@ -419,7 +420,7 @@ const products = [
 		price: "$2,899",
 		description: "Classic Martin D-28 acoustic guitar with exceptional sound quality.",
 		options: "Standard model",
-		imageSrc: "",
+		imageSrc: "https://picsum.photos/278/834",
 		imageAlt: "Martin D-28 Acoustic Guitar.",
 	},
 	{
@@ -429,7 +430,7 @@ const products = [
 		price: "$849",
 		description: "Compact analog synthesizer with powerful bass and dynamic sound shaping.",
 		options: "Analog circuits",
-		imageSrc: "",
+		imageSrc: "https://picsum.photos/278/834",
 		imageAlt: "Moog Subsequent 25 Synthesizer.",
 	},
 	{
@@ -439,7 +440,7 @@ const products = [
 		price: "$249",
 		description: "Beginner-friendly DJ controller for learning to mix and scratch.",
 		options: "Rekordbox DJ software included",
-		imageSrc: "",
+		imageSrc: "https://picsum.photos/278/834",
 		imageAlt: "Pioneer DJ DDJ-400 Controller.",
 	},
 	{
@@ -449,7 +450,7 @@ const products = [
 		price: "$999",
 		description: "Portable and easy-to-use PA system with Bose's spatial dispersion loudspeaker technology.",
 		options: "Integrated mixer",
-		imageSrc: "",
+		imageSrc: "https://picsum.photos/278/834",
 		imageAlt: "Bose L1 Compact Portable PA System.",
 	},
 	{
@@ -459,7 +460,7 @@ const products = [
 		price: "$119",
 		description: "Compact 25-key USB MIDI keyboard controller with drum pads for versatile music production.",
 		options: "Includes software bundle",
-		imageSrc: "",
+		imageSrc: "https://picsum.photos/278/834",
 		imageAlt: "Akai Professional MPK Mini Mk3.",
 	},
 	{
@@ -469,7 +470,7 @@ const products = [
 		price: "$149",
 		description: "Professional-grade studio monitor headphones known for their exceptional clarity and comfort.",
 		options: "Available in multiple colors",
-		imageSrc: "",
+		imageSrc: "https://picsum.photos/278/834",
 		imageAlt: "Audio-Technica ATH-M50x Headphones.",
 	},
 ];
@@ -533,7 +534,13 @@ export default function Page() {
 														{category.featured.map((item) => (
 															<div key={item.name} className="group relative text-sm">
 																<div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
-																	<img src={item.imageSrc} alt={item.imageAlt} className="object-cover object-center" />
+																	<NextImage
+																		src={item.imageSrc}
+																		alt={item.imageAlt}
+																		className="object-cover object-center"
+																		height={86}
+																		width={128}
+																	/>
 																</div>
 																<a href={item.href} className="mt-6 block font-medium text-gray-900">
 																	<span className="absolute inset-0 z-10" aria-hidden="true" />
@@ -575,9 +582,11 @@ export default function Page() {
 
 									<div className="border-t border-gray-200 px-4 py-6">
 										<a href="#" className="-m-2 flex items-center p-2">
-											<img
+											<NextImage
 												src="https://tailwindui.com/img/flags/flag-united-states.svg"
-												alt=""
+												alt="US Flag"
+												height={15}
+												width={20}
 												className="block h-auto w-5 flex-shrink-0"
 											/>
 											<span className="ml-3 block text-base font-medium text-gray-900">USD</span>
@@ -647,10 +656,12 @@ export default function Page() {
 																				{category.featured.map((item) => (
 																					<div key={item.name} className="group relative text-base sm:text-sm">
 																						<div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
-																							<img
+																							<NextImage
 																								src={item.imageSrc}
 																								alt={item.imageAlt}
 																								className="object-cover object-center"
+																								height={163}
+																								width={244}
 																							/>
 																						</div>
 																						<a href={item.href} className="mt-6 block font-medium text-gray-900">
@@ -700,9 +711,11 @@ export default function Page() {
 								<div className="ml-auto flex items-center">
 									<div className="hidden lg:ml-8 lg:flex">
 										<a href="#" className="flex items-center text-gray-700 hover:text-gray-800">
-											<img
+											<NextImage
 												src="https://tailwindui.com/img/flags/flag-united-states.svg"
-												alt=""
+												alt="US Flag"
+												height={15}
+												width={20}
 												className="block h-auto w-5 flex-shrink-0"
 											/>
 											<span className="ml-3 block text-sm font-medium">USD</span>
@@ -885,10 +898,12 @@ export default function Page() {
 										className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white"
 									>
 										<div className="aspect-h-4 aspect-w-3 bg-gray-200 sm:aspect-none group-hover:opacity-75 sm:h-96">
-											<img
+											<NextImage
 												src={product.imageSrc}
 												alt={product.imageAlt}
 												className="h-full w-full object-cover object-center sm:h-full sm:w-full"
+												height={384}
+												width={335}
 											/>
 										</div>
 										<div className="flex flex-1 flex-col space-y-2 p-4">
