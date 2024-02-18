@@ -1,11 +1,11 @@
 "use client";
 import Logo from "../_components/Logo/Logo";
-import { signInWithGooglePopup, createUserDocumentFromGoogleAuth } from "../_utils/firebase/firebase.utils";
+import { signInWithGooglePopup, createUserDocumentFromAuth } from "../_utils/firebase/firebase.utils";
 
 function Page() {
 	const logGoogleUser = async () => {
 		const { user } = await signInWithGooglePopup();
-		const userDocRef = await createUserDocumentFromGoogleAuth(user);
+		const userDocRef = await createUserDocumentFromAuth(user);
 	};
 
 	return (
