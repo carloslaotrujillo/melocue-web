@@ -15,8 +15,9 @@ TO IMPLEMENT FIRST
   - See analytics of user's data pulled from music services, make conclusions and do sentiment analysis based on music and social data
 
 SPECIFIC TODOS
- 
+- [ ] Change the name of the auth provider
 - [ ] Convert all images to nextjs images (refactor NextImage component)
+- [ ] Add auth with redirect for mobile screens 
 - [ ] Add a new page for the user to see their own profile
 - [ ] Add a new page for the user to see their own playlists
 - [ ] Add a new page for the user to see their own feed
