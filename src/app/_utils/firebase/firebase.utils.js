@@ -18,7 +18,7 @@ const firebaseConfig = {
 	appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-const firebaseApp = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -65,4 +65,23 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 	if (!email || !password) return;
 
 	return await signInWithEmailAndPassword(auth, email, password);
+};
+
+export const createNewNewsletterEmail = async (email) => {
+	if (!email) return;
+
+	const newsletterRef = doc(db, "newsletter", email);
+	const newsletterSnap = await getDoc(newsletterRef);
+
+	if (!newsletterSnap.exists()) {
+		try {
+			await setDoc(newsletterRef, {
+				email,
+			});
+		} catch (error) {
+			console.error("Error creating newsletter email", error.message);
+		}
+	}
+
+	return newsletterRef;
 };

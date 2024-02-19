@@ -61,7 +61,7 @@ function Page() {
 						<form onSubmit={handleSubmit} className="space-y-6">
 							<div>
 								<label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-									Email Address
+									Email
 								</label>
 								<div className="mt-2">
 									<input
