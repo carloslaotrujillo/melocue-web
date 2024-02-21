@@ -1,7 +1,10 @@
 "use client";
-import NextImage from "../_components/NextImage/NextImage";
+import Link from "next/link";
 import Logo from "../_components/Logo/Logo";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useState, useContext } from "react";
+import { UserContext } from "../_context/user.context";
+import NextImage from "../_components/NextImage/NextImage";
 import {
 	signInWithGooglePopup,
 	createUserDocumentFromAuth,
@@ -14,9 +17,11 @@ const defaultFormFields = {
 	password: "",
 };
 
-function Page() {
+export default function SignUp() {
+	const router = useRouter();
 	const [formFields, setFormFields] = useState(defaultFormFields);
 	const { displayName, email, password } = formFields;
+	const { setCurrentUser } = useContext(UserContext);
 
 	const handleChange = (event) => {
 		const { name, value } = event.target;
@@ -33,8 +38,8 @@ function Page() {
 		try {
 			const { user } = await createAuthUserWithEmailAndPassword(email, password);
 			await createUserDocumentFromAuth(user, { displayName });
-			alert("User signed up successfully");
-			resetFormFields();
+			setCurrentUser(user);
+			router.push("/profile");
 		} catch (error) {
 			if (error.code === "auth/email-already-in-use") {
 				alert("Cannot create user, email already in use");
@@ -49,7 +54,8 @@ function Page() {
 		try {
 			const { user } = await signInWithGooglePopup();
 			await createUserDocumentFromAuth(user);
-			alert("User signed up successfully");
+			setCurrentUser(user);
+			router.push("/profile");
 		} catch (error) {
 			console.error("User creation encountered an error", error);
 			alert("Cannot create user, an error has been emitted");
@@ -144,7 +150,7 @@ function Page() {
 								</div>
 
 								<div className="mt-6 grid grid-cols-1 gap-4">
-									<a
+									<Link
 										href="#"
 										onClick={signGoogleUser}
 										className="flex w-full items-center justify-center gap-3 rounded-md bg-white border border-solid border-black px-3 py-1.5 text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0]"
@@ -171,7 +177,7 @@ function Page() {
 											</g>
 										</svg>
 										<span className="text-sm font-semibold leading-6">Google</span>
-									</a>
+									</Link>
 								</div>
 							</div>
 						</div>
@@ -190,5 +196,3 @@ function Page() {
 		</>
 	);
 }
-
-export default Page;

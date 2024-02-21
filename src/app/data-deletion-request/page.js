@@ -1,6 +1,4 @@
-import React from "react";
-
-function DataDeletionRequest() {
+export default function DataDeletionRequest() {
 	return (
 		<div className="flex min-h-full flex-1 flex-col justify-start py-12 sm:px-6 lg:px-8">
 			<h1>Data Deletion Request</h1>
@@ -15,5 +13,3 @@ function DataDeletionRequest() {
 		</div>
 	);
 }
-
-export default DataDeletionRequest;

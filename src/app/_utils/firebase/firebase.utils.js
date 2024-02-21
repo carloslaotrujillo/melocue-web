@@ -2,6 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 import {
 	getAuth,
+	signOut,
 	signInWithPopup,
 	GoogleAuthProvider,
 	signInWithEmailAndPassword,
@@ -24,9 +25,26 @@ initializeApp(firebaseConfig);
 export const auth = getAuth();
 export const db = getFirestore();
 
+// Google Authentication
 const googleProvider = new GoogleAuthProvider();
 googleProvider.setCustomParameters({ prompt: "select_account" });
 export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider);
+
+// Email and Password Authentication
+export const createAuthUserWithEmailAndPassword = async (email, password) => {
+	if (!email || !password) return;
+
+	return await createUserWithEmailAndPassword(auth, email, password);
+};
+
+export const signInAuthUserWithEmailAndPassword = async (email, password) => {
+	if (!email || !password) return;
+
+	return await signInWithEmailAndPassword(auth, email, password);
+};
+
+// Sign Out
+export const signOutUser = async () => await signOut(auth);
 
 // Create User Document
 export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
@@ -52,19 +70,6 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
 	}
 
 	return userRef;
-};
-
-// Email and Password Authentication
-export const createAuthUserWithEmailAndPassword = async (email, password) => {
-	if (!email || !password) return;
-
-	return await createUserWithEmailAndPassword(auth, email, password);
-};
-
-export const signInAuthUserWithEmailAndPassword = async (email, password) => {
-	if (!email || !password) return;
-
-	return await signInWithEmailAndPassword(auth, email, password);
 };
 
 // Newsletter

@@ -18,7 +18,7 @@ export default function Newsletter() {
 				setEmail("");
 				alert("Thank you for subscribing to our newsletter!");
 			} catch (error) {
-				console.log(error);
+				console.error(error);
 				alert("Error sending email, please try again later or contact support.");
 			}
 		} else {

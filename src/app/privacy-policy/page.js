@@ -1,14 +1,14 @@
-import React from "react";
+import Link from "next/link";
 
-function PrivacyPolicy() {
+export default function PrivacyPolicy() {
 	return (
 		<div className="flex min-h-full flex-1 flex-col justify-start py-12 sm:px-6 lg:px-8">
 			<h1>Privacy Policy</h1>
 			<p>
 				Your privacy is important to us. It is our policy to respect your privacy regarding any information we may
-				collect from you across our website, <a href="https://www.melocue.com">https://www.melocue.com</a>, and other
-				sites we own and operate. We only ask for personal information when we truly need it to provide a service to
-				you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re
+				collect from you across our website, <Link href="https://www.melocue.com">https://www.melocue.com</Link>, and
+				other sites we own and operate. We only ask for personal information when we truly need it to provide a service
+				to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re
 				collecting it and how it will be used. We only retain collected information for as long as necessary to provide
 				you with your requested service. What data we store, we’ll protect within commercially acceptable means to
 				prevent loss and theft, as well as unauthorised access, disclosure, copying, use or modification. We don’t share
@@ -24,5 +24,3 @@ function PrivacyPolicy() {
 		</div>
 	);
 }
-
-export default PrivacyPolicy;

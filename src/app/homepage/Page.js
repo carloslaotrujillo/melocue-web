@@ -1,10 +1,9 @@
 "use client";
-
 import SectionHero from "./SectionHero";
 import Footer from "../_components/Footer/Footer";
 import Newsletter from "../_components/Newsletter/Newsletter";
 
-function Page() {
+export default function Homepage() {
 	return (
 		<>
 			<SectionHero />
@@ -13,5 +12,3 @@ function Page() {
 		</>
 	);
 }
-
-export default Page;

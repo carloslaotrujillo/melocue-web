@@ -1,6 +1,4 @@
-import React from "react";
-
-function TermsOfService() {
+export default function TermsOfService() {
 	return (
 		<div className="flex min-h-full flex-1 flex-col justify-start py-12 sm:px-6 lg:px-8">
 			<h1>Terms of Service</h1>
@@ -32,5 +30,3 @@ function TermsOfService() {
 		</div>
 	);
 }
-
-export default TermsOfService;

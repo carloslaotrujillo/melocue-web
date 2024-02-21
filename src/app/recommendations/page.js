@@ -1,9 +1,3 @@
-import React from 'react';
-
-function Page(props) {
-    return (
-        <div>recommendations</div>
-    );
+export default function Recommendations() {
+	return <div>Recommendations</div>;
 }
-
-export default Page;

@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { Fragment, useState } from "react";
 import { Dialog, Disclosure, Popover, Tab, Transition } from "@headlessui/react";
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -479,7 +479,7 @@ function classNames(...classes) {
 	return classes.filter(Boolean).join(" ");
 }
 
-export default function Page() {
+export default function Marketplace() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 	const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
@@ -542,10 +542,10 @@ export default function Page() {
 																		width={128}
 																	/>
 																</div>
-																<a href={item.href} className="mt-6 block font-medium text-gray-900">
+																<Link href={item.href} className="mt-6 block font-medium text-gray-900">
 																	<span className="absolute inset-0 z-10" aria-hidden="true" />
 																	{item.name}
-																</a>
+																</Link>
 																<p aria-hidden="true" className="mt-1">
 																	Shop now
 																</p>
@@ -567,9 +567,9 @@ export default function Page() {
 															>
 																{section.items.map((item) => (
 																	<li key={item.name} className="flow-root">
-																		<a href={item.href} className="-m-2 block p-2 text-gray-500">
+																		<Link href={item.href} className="-m-2 block p-2 text-gray-500">
 																			{item.name}
-																		</a>
+																		</Link>
 																	</li>
 																))}
 															</ul>
@@ -581,7 +581,7 @@ export default function Page() {
 									</Tab.Group>
 
 									<div className="border-t border-gray-200 px-4 py-6">
-										<a href="#" className="-m-2 flex items-center p-2">
+										<Link href="#" className="-m-2 flex items-center p-2">
 											<NextImage
 												src="https://tailwindui.com/img/flags/flag-united-states.svg"
 												alt="US Flag"
@@ -591,7 +591,7 @@ export default function Page() {
 											/>
 											<span className="ml-3 block text-base font-medium text-gray-900">USD</span>
 											<span className="sr-only">, change currency</span>
-										</a>
+										</Link>
 									</div>
 								</Dialog.Panel>
 							</Transition.Child>
@@ -664,10 +664,10 @@ export default function Page() {
 																								width={244}
 																							/>
 																						</div>
-																						<a href={item.href} className="mt-6 block font-medium text-gray-900">
+																						<Link href={item.href} className="mt-6 block font-medium text-gray-900">
 																							<span className="absolute inset-0 z-10" aria-hidden="true" />
 																							{item.name}
-																						</a>
+																						</Link>
 																						<p aria-hidden="true" className="mt-1">
 																							Shop now
 																						</p>
@@ -687,9 +687,9 @@ export default function Page() {
 																						>
 																							{section.items.map((item) => (
 																								<li key={item.name} className="flex">
-																									<a href={item.href} className="hover:text-gray-800">
+																									<Link href={item.href} className="hover:text-gray-800">
 																										{item.name}
-																									</a>
+																									</Link>
 																								</li>
 																							))}
 																						</ul>
@@ -710,7 +710,7 @@ export default function Page() {
 
 								<div className="ml-auto flex items-center">
 									<div className="hidden lg:ml-8 lg:flex">
-										<a href="#" className="flex items-center text-gray-700 hover:text-gray-800">
+										<Link href="#" className="flex items-center text-gray-700 hover:text-gray-800">
 											<NextImage
 												src="https://tailwindui.com/img/flags/flag-united-states.svg"
 												alt="US Flag"
@@ -720,27 +720,27 @@ export default function Page() {
 											/>
 											<span className="ml-3 block text-sm font-medium">USD</span>
 											<span className="sr-only">, change currency</span>
-										</a>
+										</Link>
 									</div>
 
 									{/* Search */}
 									<div className="flex lg:ml-6">
-										<a href="#" className="p-2 text-gray-400 hover:text-gray-500">
+										<Link href="#" className="p-2 text-gray-400 hover:text-gray-500">
 											<span className="sr-only">Search</span>
 											<MagnifyingGlassIcon className="h-6 w-6" aria-hidden="true" />
-										</a>
+										</Link>
 									</div>
 
 									{/* Cart */}
 									<div className="ml-4 flow-root lg:ml-6">
-										<a href="#" className="group -m-2 flex items-center p-2">
+										<Link href="#" className="group -m-2 flex items-center p-2">
 											<ShoppingBagIcon
 												className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
 												aria-hidden="true"
 											/>
 											<span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
 											<span className="sr-only">items in cart, view bag</span>
-										</a>
+										</Link>
 									</div>
 								</div>
 							</div>
@@ -908,10 +908,10 @@ export default function Page() {
 										</div>
 										<div className="flex flex-1 flex-col space-y-2 p-4">
 											<h3 className="text-sm font-medium text-gray-900">
-												<a href={product.href}>
+												<Link href={product.href}>
 													<span aria-hidden="true" className="absolute inset-0" />
 													{product.name}
-												</a>
+												</Link>
 											</h3>
 											<p className="text-sm text-gray-500">{product.description}</p>
 											<div className="flex flex-1 flex-col justify-end">

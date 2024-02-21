@@ -1,6 +1,6 @@
 import NextImage from "../NextImage/NextImage";
 
-const Logo = () => {
+export default function Logo() {
 	return (
 		<NextImage
 			src="/favicon.png"
@@ -11,6 +11,4 @@ const Logo = () => {
 			priority={true}
 		/>
 	);
-};
-
-export default Logo;
+}

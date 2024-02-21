@@ -1,6 +1,9 @@
 "use client";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState, useContext } from "react";
 import Logo from "../_components/Logo/Logo";
-import { useState } from "react";
+import { UserContext } from "../_context/user.context";
 import {
 	signInWithGooglePopup,
 	createUserDocumentFromAuth,
@@ -12,9 +15,11 @@ const defaultFormFields = {
 	password: "",
 };
 
-function Page() {
+export default function SignIn() {
+	const router = useRouter();
 	const [formFields, setFormFields] = useState(defaultFormFields);
 	const { email, password } = formFields;
+	const { setCurrentUser } = useContext(UserContext);
 
 	const handleChange = (event) => {
 		const { name, value } = event.target;
@@ -30,8 +35,8 @@ function Page() {
 
 		try {
 			const user = await signInAuthUserWithEmailAndPassword(email, password);
-			resetFormFields();
-			alert("User signed in successfully");
+			setCurrentUser(user);
+			router.push("/profile");
 		} catch (error) {
 			if (error.code === "auth/invalid-credential") {
 				alert("Invalid credentials");
@@ -46,7 +51,8 @@ function Page() {
 		try {
 			const { user } = await signInWithGooglePopup();
 			await createUserDocumentFromAuth(user);
-			alert("User signed in successfully");
+			setCurrentUser(user);
+			router.push("/profile");
 		} catch (error) {
 			console.error("User sign in encountered an error", error);
 			alert("Cannot sign in user, an error has been emitted");
@@ -117,9 +123,9 @@ function Page() {
 								</div>
 
 								<div className="text-sm leading-6">
-									<a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
+									<Link href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
 										Forgot password?
-									</a>
+									</Link>
 								</div>
 							</div> */}
 
@@ -144,7 +150,7 @@ function Page() {
 							</div>
 
 							<div className="mt-6 grid grid-cols-1 gap-4">
-								<a
+								<Link
 									href="#"
 									onClick={logGoogleUser}
 									className="flex w-full items-center justify-center gap-3 rounded-md bg-white border border-solid border-black px-3 py-1.5 text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0]"
@@ -171,21 +177,19 @@ function Page() {
 										</g>
 									</svg>
 									<span className="text-sm font-semibold leading-6">Google</span>
-								</a>
+								</Link>
 							</div>
 						</div>
 					</div>
 
 					<p className="mt-10 text-center text-sm text-gray-500">
 						Not a member?{" "}
-						<a href="/signup" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+						<Link href="/signup" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
 							Create an account
-						</a>
+						</Link>
 					</p>
 				</div>
 			</div>
 		</>
 	);
 }
-
-export default Page;

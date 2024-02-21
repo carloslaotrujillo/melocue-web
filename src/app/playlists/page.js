@@ -1,9 +1,3 @@
-import React from 'react';
-
-function Page() {
-    return (
-        <div>playlists</div>
-    );
+export default function Playlists() {
+	return <div>Playlists</div>;
 }
-
-export default Page;

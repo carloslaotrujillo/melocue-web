@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const navigation = {
 	social: [
 		{
@@ -64,16 +66,16 @@ const navigation = {
 	],
 };
 
-function Footer() {
+export default function Footer() {
 	return (
 		<footer className="bg-lime-400">
 			<div className="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-8 lg:px-8">
 				<div className="flex justify-center space-x-10">
 					{navigation.social.map((item) => (
-						<a key={item.name} href={item.href} className="text-gray-900 hover:text-gray-600">
+						<Link key={item.name} href={item.href} className="text-gray-900 hover:text-gray-600">
 							<span className="sr-only">{item.name}</span>
 							<item.icon className="h-6 w-6" aria-hidden="true" />
-						</a>
+						</Link>
 					))}
 				</div>
 				<p className="mt-6 text-center text-xs leading-5 text-gray-900">
@@ -81,19 +83,17 @@ function Footer() {
 				</p>
 				{/* Footer Pages */}
 				{/* <p className="mt-3 text-center text-[10px] leading-5 text-gray-900">
-					<a href="/privacy-policy" className="hover:text-indigo-600 mx-2">
+					<Link href="/privacy-policy" className="hover:text-indigo-600 mx-2">
 						Privacy Policy
-					</a>
-					<a href="/terms-of-service" className="hover:text-indigo-600 mx-2">
+					</Link>
+					<Link href="/terms-of-service" className="hover:text-indigo-600 mx-2">
 						Terms of Service
-					</a>
-					<a href="/data-deletion-request" className="hover:text-indigo-600 mx-2">
+					</Link>
+					<Link href="/data-deletion-request" className="hover:text-indigo-600 mx-2">
 						Data Deletion
-					</a>
+					</Link>
 				</p> */}
 			</div>
 		</footer>
 	);
 }
-
-export default Footer;

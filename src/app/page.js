@@ -1,11 +1,9 @@
 import Homepage from "./homepage/Page";
 
-function Page() {
+export default function App() {
 	return (
 		<>
 			<Homepage />
 		</>
 	);
 }
-
-export default Page;

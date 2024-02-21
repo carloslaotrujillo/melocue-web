@@ -1,5 +1,6 @@
-import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/20/solid";
+"use client";
 import NextImage from "../_components/NextImage/NextImage";
+import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/20/solid";
 
 const page = {
 	name: "Charles La O",
