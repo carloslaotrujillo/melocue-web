@@ -18,6 +18,11 @@ function Page() {
 	const [formFields, setFormFields] = useState(defaultFormFields);
 	const { displayName, email, password } = formFields;
 
+	const handleChange = (event) => {
+		const { name, value } = event.target;
+		setFormFields({ ...formFields, [name]: value });
+	};
+
 	const resetFormFields = () => {
 		setFormFields(defaultFormFields);
 	};
@@ -28,24 +33,27 @@ function Page() {
 		try {
 			const { user } = await createAuthUserWithEmailAndPassword(email, password);
 			await createUserDocumentFromAuth(user, { displayName });
+			alert("User signed up successfully");
 			resetFormFields();
 		} catch (error) {
 			if (error.code === "auth/email-already-in-use") {
 				alert("Cannot create user, email already in use");
 			} else {
-				console.log("User creation encountered an error", error);
+				console.error("User creation encountered an error", error);
+				alert("Cannot create user, an error has been emitted");
 			}
 		}
 	};
 
-	const handleChange = (event) => {
-		const { name, value } = event.target;
-		setFormFields({ ...formFields, [name]: value });
-	};
-
 	const signGoogleUser = async () => {
-		const { user } = await signInWithGooglePopup();
-		const userDocRef = await createUserDocumentFromAuth(user);
+		try {
+			const { user } = await signInWithGooglePopup();
+			await createUserDocumentFromAuth(user);
+			alert("User signed up successfully");
+		} catch (error) {
+			console.error("User creation encountered an error", error);
+			alert("Cannot create user, an error has been emitted");
+		}
 	};
 
 	return (

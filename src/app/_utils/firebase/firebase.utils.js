@@ -8,6 +8,7 @@ import {
 	createUserWithEmailAndPassword,
 } from "firebase/auth";
 
+// Firebase Configuration
 const firebaseConfig = {
 	apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
 	authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -18,18 +19,16 @@ const firebaseConfig = {
 	appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
+// Initialize Firebase
 initializeApp(firebaseConfig);
-
-const googleProvider = new GoogleAuthProvider();
-
-googleProvider.setCustomParameters({ prompt: "select_account" });
-
 export const auth = getAuth();
-
-export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider);
-
 export const db = getFirestore();
 
+const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({ prompt: "select_account" });
+export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider);
+
+// Create User Document
 export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
 	if (!userAuth) return;
 
@@ -55,6 +54,7 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
 	return userRef;
 };
 
+// Email and Password Authentication
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
 	if (!email || !password) return;
 
@@ -67,6 +67,7 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 	return await signInWithEmailAndPassword(auth, email, password);
 };
 
+// Newsletter
 export const createNewNewsletterEmail = async (email) => {
 	if (!email) return;
 

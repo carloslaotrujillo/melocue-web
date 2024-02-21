@@ -1,7 +1,11 @@
 "use client";
 import Logo from "../_components/Logo/Logo";
 import { useState } from "react";
-import { signInWithGooglePopup, signInAuthUserWithEmailAndPassword } from "../_utils/firebase/firebase.utils";
+import {
+	signInWithGooglePopup,
+	createUserDocumentFromAuth,
+	signInAuthUserWithEmailAndPassword,
+} from "../_utils/firebase/firebase.utils";
 
 const defaultFormFields = {
 	email: "",
@@ -12,6 +16,11 @@ function Page() {
 	const [formFields, setFormFields] = useState(defaultFormFields);
 	const { email, password } = formFields;
 
+	const handleChange = (event) => {
+		const { name, value } = event.target;
+		setFormFields({ ...formFields, [name]: value });
+	};
+
 	const resetFormFields = () => {
 		setFormFields(defaultFormFields);
 	};
@@ -20,29 +29,27 @@ function Page() {
 		event.preventDefault();
 
 		try {
-			await signInAuthUserWithEmailAndPassword(email, password);
-			alert("User signed in");
+			const user = await signInAuthUserWithEmailAndPassword(email, password);
 			resetFormFields();
+			alert("User signed in successfully");
 		} catch (error) {
 			if (error.code === "auth/invalid-credential") {
 				alert("Invalid credentials");
 			} else {
-				alert("Error signing in user");
+				console.error("User sign in encountered an error", error);
+				alert("Cannot sign in user, an error has been emitted");
 			}
 		}
-	};
-
-	const handleChange = (event) => {
-		const { name, value } = event.target;
-		setFormFields({ ...formFields, [name]: value });
 	};
 
 	const logGoogleUser = async () => {
 		try {
 			const { user } = await signInWithGooglePopup();
-			console.log(user);
+			await createUserDocumentFromAuth(user);
+			alert("User signed in successfully");
 		} catch (error) {
-			console.error("Error creating user", error.message);
+			console.error("User sign in encountered an error", error);
+			alert("Cannot sign in user, an error has been emitted");
 		}
 	};
 
