@@ -12,9 +12,6 @@ import { signOutUser } from "../../_utils/firebase/firebase.utils";
 const navigation = [
 	{ name: "Home", href: "/" },
 	{ name: "Marketplace", href: "/marketplace" },
-	// { name: 'Playlists', href: '/playlists' },
-	// { name: 'Community', href: '/community' },
-	// { name: 'Recommendations', href: 'recommendations' },
 ];
 
 export default function NavBar() {
@@ -104,12 +101,25 @@ export default function NavBar() {
 							<span className="sr-only">Your Company</span>
 							<Logo />
 						</Link>
-						<Link
-							href="/signup"
-							className="ml-auto rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-						>
-							{currentUser ? "Profile" : "Sign Up"}
-						</Link>
+						{currentUser ? (
+							<>
+								<Link
+									href="/profile"
+									className="ml-auto rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+								>
+									Profile
+								</Link>
+							</>
+						) : (
+							<>
+								<Link
+									href="/signup"
+									className="ml-auto rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+								>
+									Sign Up
+								</Link>
+							</>
+						)}
 						<button
 							type="button"
 							className="-m-2.5 rounded-md p-2.5 text-gray-700"
@@ -133,12 +143,26 @@ export default function NavBar() {
 								))}
 							</div>
 							<div className="py-6">
-								<Link
-									href="/signin"
-									className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-								>
-									{currentUser ? "Sign Out" : "Sign In"}
-								</Link>
+								{currentUser ? (
+									<>
+										<Link
+											href="#"
+											onClick={signOutCallback}
+											className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+										>
+											Sign Out
+										</Link>
+									</>
+								) : (
+									<>
+										<Link
+											href="/signin"
+											className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+										>
+											Sign In
+										</Link>
+									</>
+								)}
 							</div>
 						</div>
 					</div>
