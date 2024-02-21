@@ -43,7 +43,7 @@ export default function SignIn() {
 			if (error.code === "auth/invalid-credential") {
 				alert("Invalid credentials");
 			} else {
-				console.log("User sign in encountered an error", error);
+				console.error("User sign in encountered an error", error);
 				alert("Cannot sign in user, an error has been emitted");
 			}
 		}
