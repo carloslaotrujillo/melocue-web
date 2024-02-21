@@ -34,14 +34,16 @@ export default function SignIn() {
 		event.preventDefault();
 
 		try {
-			const user = await signInAuthUserWithEmailAndPassword(email, password);
+			const { user } = await signInAuthUserWithEmailAndPassword(email, password);
+			user.displayName = user.email.split("@")[0];
+			await createUserDocumentFromAuth(user);
 			setCurrentUser(user);
 			router.push("/profile");
 		} catch (error) {
 			if (error.code === "auth/invalid-credential") {
 				alert("Invalid credentials");
 			} else {
-				console.error("User sign in encountered an error", error);
+				console.log("User sign in encountered an error", error);
 				alert("Cannot sign in user, an error has been emitted");
 			}
 		}
