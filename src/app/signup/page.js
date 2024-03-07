@@ -1,12 +1,16 @@
 "use client";
+
 import Link from "next/link";
 import Logo from "../_components/Logo/Logo";
+
 import { useRouter } from "next/navigation";
-import { useState, useContext } from "react";
+import { getRedirectResult } from "firebase/auth";
+import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../_context/user.context";
 import NextImage from "../_components/NextImage/NextImage";
 import {
-	signInWithGooglePopup,
+	auth,
+	signInWithGoogleRedirect,
 	createUserDocumentFromAuth,
 	createAuthUserWithEmailAndPassword,
 } from "../_utils/firebase/firebase.utils";
@@ -22,6 +26,23 @@ export default function SignUp() {
 	const [formFields, setFormFields] = useState(defaultFormFields);
 	const { displayName, email, password } = formFields;
 	const { setCurrentUser } = useContext(UserContext);
+
+	useEffect(() => {
+		(async () => {
+			const response = await getRedirectResult(auth);
+
+			if (response) {
+				try {
+					await createUserDocumentFromAuth(response.user);
+					setCurrentUser(response.user);
+					router.push("/profile");
+				} catch (error) {
+					console.error("User sign in encountered an error", error);
+					alert("Cannot sign in user, an error has been emitted");
+				}
+			}
+		})();
+	}, []);
 
 	const handleChange = (event) => {
 		const { name, value } = event.target;
@@ -47,18 +68,6 @@ export default function SignUp() {
 				console.error("User creation encountered an error", error);
 				alert("Cannot create user, an error has been emitted");
 			}
-		}
-	};
-
-	const signGoogleUser = async () => {
-		try {
-			const { user } = await signInWithGooglePopup();
-			await createUserDocumentFromAuth(user);
-			setCurrentUser(user);
-			router.push("/profile");
-		} catch (error) {
-			console.error("User creation encountered an error", error);
-			alert("Cannot create user, an error has been emitted");
 		}
 	};
 
@@ -152,7 +161,7 @@ export default function SignUp() {
 								<div className="mt-6 grid grid-cols-1 gap-4">
 									<Link
 										href="#"
-										onClick={signGoogleUser}
+										onClick={signInWithGoogleRedirect}
 										className="flex w-full items-center justify-center gap-3 rounded-md bg-white border border-solid border-black px-3 py-1.5 text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0]"
 									>
 										<svg className="h-5 w-5" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">

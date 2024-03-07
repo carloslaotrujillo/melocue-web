@@ -3,7 +3,8 @@ import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 import {
 	getAuth,
 	signOut,
-	signInWithPopup,
+	signInWithRedirect,
+	onAuthStateChanged,
 	GoogleAuthProvider,
 	signInWithEmailAndPassword,
 	createUserWithEmailAndPassword,
@@ -28,7 +29,7 @@ export const db = getFirestore();
 // Google Authentication
 const googleProvider = new GoogleAuthProvider();
 googleProvider.setCustomParameters({ prompt: "select_account" });
-export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider);
+export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googleProvider);
 
 // Email and Password Authentication
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
@@ -91,3 +92,6 @@ export const createNewNewsletterEmail = async (email) => {
 
 	return newsletterRef;
 };
+
+// Auth State Change Listener
+export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
