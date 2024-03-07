@@ -17,13 +17,7 @@ const navigation = [
 export default function NavBar() {
 	const router = useRouter();
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-	const { currentUser, setCurrentUser } = useContext(UserContext);
-
-	const signOutCallback = async () => {
-		await signOutUser();
-		setCurrentUser(null);
-		router.push("/");
-	};
+	const { currentUser } = useContext(UserContext);
 
 	return (
 		<header className="bg-lime-400 w-full">
@@ -53,7 +47,7 @@ export default function NavBar() {
 						<>
 							<Link
 								href="#"
-								onClick={signOutCallback}
+								onClick={signOutUser}
 								className="hidden lg:block lg:text-sm lg:font-semibold lg:leading-6 lg:text-gray-900 hover:text-gray-600"
 							>
 								Sign Out
@@ -147,7 +141,7 @@ export default function NavBar() {
 									<>
 										<Link
 											href="#"
-											onClick={signOutCallback}
+											onClick={signOutUser}
 											className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
 										>
 											Sign Out

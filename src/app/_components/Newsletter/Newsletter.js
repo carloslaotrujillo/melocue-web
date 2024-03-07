@@ -34,7 +34,7 @@ export default function Newsletter() {
 					<p className="inline sm:block lg:inline xl:block">Sign up for our newsletter.</p>
 				</div>
 				<form onSubmit={handleSubmit} className="w-full max-w-md lg:col-span-5 lg:pt-2">
-					<div className="flex gap-x-4">
+					<div className="flex gap-x-4 max-w-[26rem]">
 						<label htmlFor="email-address" className="sr-only">
 							Email
 						</label>

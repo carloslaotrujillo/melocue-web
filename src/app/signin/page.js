@@ -3,12 +3,9 @@
 import Link from "next/link";
 import Logo from "../_components/Logo/Logo";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { getRedirectResult } from "firebase/auth";
-import { useState, useEffect, useContext } from "react";
-import { UserContext } from "../_context/user.context";
 import {
-	auth,
 	signInWithGoogleRedirect,
 	createUserDocumentFromAuth,
 	signInAuthUserWithEmailAndPassword,
@@ -23,24 +20,6 @@ export default function SignIn() {
 	const router = useRouter();
 	const [formFields, setFormFields] = useState(defaultFormFields);
 	const { email, password } = formFields;
-	const { setCurrentUser } = useContext(UserContext);
-
-	useEffect(() => {
-		(async () => {
-			const response = await getRedirectResult(auth);
-
-			if (response) {
-				try {
-					await createUserDocumentFromAuth(response.user);
-					setCurrentUser(response.user);
-					router.push("/profile");
-				} catch (error) {
-					console.error("User sign in encountered an error", error);
-					alert("Cannot sign in user, an error has been emitted");
-				}
-			}
-		})();
-	}, []);
 
 	const handleChange = (event) => {
 		const { name, value } = event.target;

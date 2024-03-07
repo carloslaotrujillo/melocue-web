@@ -44,9 +44,6 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 	return await signInWithEmailAndPassword(auth, email, password);
 };
 
-// Sign Out
-export const signOutUser = async () => await signOut(auth);
-
 // Create User Document
 export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
 	if (!userAuth) return;
@@ -95,3 +92,6 @@ export const createNewNewsletterEmail = async (email) => {
 
 // Auth State Change Listener
 export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
+
+// Sign Out
+export const signOutUser = async () => await signOut(auth);

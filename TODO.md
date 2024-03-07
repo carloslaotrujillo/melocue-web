@@ -1,7 +1,3 @@
-GENERAL TODOS
-- [ ] Properly integrate eslint and prettier
-- [ ] Integrate env variable on the cloud (HashiCorp Vault, Infisical, Doppler, etc)
-
 TO IMPLEMENT FIRST
 - [ ] Social Networking Features
   - Core to any social platform; allows for basic user registration, profile creation, and following other users.
