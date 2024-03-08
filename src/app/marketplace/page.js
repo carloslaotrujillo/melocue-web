@@ -360,7 +360,15 @@ const products = [
 		price: "$699",
 		description: "The classic Fender Stratocaster, perfect for all levels of players.",
 		options: "Available in various colors",
-		imageSrc: "https://picsum.photos/278/834",
+		imageSrc: [
+			"/assets/strat1.png",
+			"/assets/strat2.png",
+			"/assets/strat3.png",
+			"/assets/strat4.png",
+			"/assets/strat5.png",
+			"/assets/strat6.png",
+			"/assets/strat7.png",
+		],
 		imageAlt: "Fender Stratocaster in sunburst color.",
 	},
 	{
@@ -370,7 +378,15 @@ const products = [
 		price: "$999",
 		description: "Complete drum set with high-quality Yamaha sound, suitable for both beginners and professionals.",
 		options: "Various configurations",
-		imageSrc: "https://picsum.photos/278/834",
+		imageSrc: [
+			"/assets/yamaha1.png",
+			"/assets/yamaha2.png",
+			"/assets/yamaha3.png",
+			"/assets/yamaha4.png",
+			"/assets/yamaha5.png",
+			"/assets/yamaha6.png",
+			"/assets/yamaha7.png",
+		],
 		imageAlt: "Yamaha Stage Custom Drum Set in natural wood finish.",
 	},
 	{
@@ -380,7 +396,15 @@ const products = [
 		price: "$2,499",
 		description: "Iconic Gibson Les Paul Standard, renowned for its rich tone and sustain.",
 		options: "Multiple finishes available",
-		imageSrc: "https://picsum.photos/278/834",
+		imageSrc: [
+			"/assets/gibson1.png",
+			"/assets/gibson2.png",
+			"/assets/gibson3.png",
+			"/assets/gibson4.png",
+			"/assets/gibson5.png",
+			"/assets/gibson6.png",
+			"/assets/gibson7.png",
+		],
 		imageAlt: "Gibson Les Paul Standard in cherry sunburst.",
 	},
 	{
@@ -390,7 +414,7 @@ const products = [
 		price: "$1,599",
 		description: "Top-of-the-line electronic drum set with a realistic playing feel.",
 		options: "Advanced features",
-		imageSrc: "https://picsum.photos/278/834",
+		imageSrc: ["/assets/roland1.png", "/assets/roland2.png", "/assets/roland3.png", "/assets/roland4.png"],
 		imageAlt: "Roland TD-17KVX Electronic Drum Set.",
 	},
 	{
@@ -400,7 +424,15 @@ const products = [
 		price: "$450",
 		description: "Versatile digital piano with natural weighted keys and rich sounds.",
 		options: "Includes music rest and pedal",
-		imageSrc: "https://picsum.photos/278/834",
+		imageSrc: [
+			"/assets/korg1.png",
+			"/assets/korg2.png",
+			"/assets/korg3.png",
+			"/assets/korg4.png",
+			"/assets/korg5.png",
+			"/assets/korg6.png",
+			"/assets/korg7.png",
+		],
 		imageAlt: "Korg B2 Digital Piano in black.",
 	},
 	{
@@ -410,7 +442,13 @@ const products = [
 		price: "$99",
 		description: "Legendary Shure SM58 dynamic vocal microphone, known for its durability and clarity.",
 		options: "Standard model",
-		imageSrc: "https://picsum.photos/278/834",
+		imageSrc: [
+			"/assets/shure1.png",
+			"/assets/shure2.png",
+			"/assets/shure3.png",
+			"/assets/shure4.png",
+			"/assets/shure5.png",
+		],
 		imageAlt: "Shure SM58 Microphone.",
 	},
 	{
@@ -420,7 +458,15 @@ const products = [
 		price: "$2,899",
 		description: "Classic Martin D-28 acoustic guitar with exceptional sound quality.",
 		options: "Standard model",
-		imageSrc: "https://picsum.photos/278/834",
+		imageSrc: [
+			"/assets/martin1.png",
+			"/assets/martin2.png",
+			"/assets/martin3.png",
+			"/assets/martin4.png",
+			"/assets/martin5.png",
+			"/assets/martin6.png",
+			"/assets/martin7.png",
+		],
 		imageAlt: "Martin D-28 Acoustic Guitar.",
 	},
 	{
@@ -430,7 +476,14 @@ const products = [
 		price: "$849",
 		description: "Compact analog synthesizer with powerful bass and dynamic sound shaping.",
 		options: "Analog circuits",
-		imageSrc: "https://picsum.photos/278/834",
+		imageSrc: [
+			"/assets/moog1.png",
+			"/assets/moog2.png",
+			"/assets/moog3.png",
+			"/assets/moog4.png",
+			"/assets/moog5.png",
+			"/assets/moog6.png",
+		],
 		imageAlt: "Moog Subsequent 25 Synthesizer.",
 	},
 	{
@@ -440,7 +493,14 @@ const products = [
 		price: "$249",
 		description: "Beginner-friendly DJ controller for learning to mix and scratch.",
 		options: "Rekordbox DJ software included",
-		imageSrc: "https://picsum.photos/278/834",
+		imageSrc: [
+			"/assets/pioneer1.png",
+			"/assets/pioneer2.png",
+			"/assets/pioneer3.png",
+			"/assets/pioneer4.png",
+			"/assets/pioneer5.png",
+			"/assets/pioneer6.png",
+		],
 		imageAlt: "Pioneer DJ DDJ-400 Controller.",
 	},
 	{
@@ -450,7 +510,14 @@ const products = [
 		price: "$999",
 		description: "Portable and easy-to-use PA system with Bose's spatial dispersion loudspeaker technology.",
 		options: "Integrated mixer",
-		imageSrc: "https://picsum.photos/278/834",
+		imageSrc: [
+			"/assets/bose1.png",
+			"/assets/bose2.png",
+			"/assets/bose3.png",
+			"/assets/bose4.png",
+			"/assets/bose5.png",
+			"/assets/bose6.png",
+		],
 		imageAlt: "Bose L1 Compact Portable PA System.",
 	},
 	{
@@ -460,7 +527,14 @@ const products = [
 		price: "$119",
 		description: "Compact 25-key USB MIDI keyboard controller with drum pads for versatile music production.",
 		options: "Includes software bundle",
-		imageSrc: "https://picsum.photos/278/834",
+		imageSrc: [
+			"/assets/akai1.png",
+			"/assets/akai2.png",
+			"/assets/akai3.png",
+			"/assets/akai4.png",
+			"/assets/akai5.png",
+			"/assets/akai6.png",
+		],
 		imageAlt: "Akai Professional MPK Mini Mk3.",
 	},
 	{
@@ -470,7 +544,14 @@ const products = [
 		price: "$149",
 		description: "Professional-grade studio monitor headphones known for their exceptional clarity and comfort.",
 		options: "Available in multiple colors",
-		imageSrc: "https://picsum.photos/278/834",
+		imageSrc: [
+			"/assets/audio-technica1.png",
+			"/assets/audio-technica2.png",
+			"/assets/audio-technica3.png",
+			"/assets/audio-technica4.png",
+			"/assets/audio-technica5.png",
+			"/assets/audio-technica6.png",
+		],
 		imageAlt: "Audio-Technica ATH-M50x Headphones.",
 	},
 ];
@@ -897,11 +978,11 @@ export default function Marketplace() {
 										key={product.id}
 										className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white"
 									>
-										<div className="aspect-h-4 aspect-w-3 bg-gray-200 sm:aspect-none group-hover:opacity-75 sm:h-96">
+										<div className="aspect-h-4 aspect-w-3 bg-white sm:aspect-none group-hover:opacity-75 sm:h-96">
 											<NextImage
-												src={product.imageSrc}
+												src={product.imageSrc[0]}
 												alt={product.imageAlt}
-												className="h-full w-full object-cover object-center sm:h-full sm:w-full"
+												className="h-full w-full object-contain object-center sm:h-full sm:w-full"
 												height={384}
 												width={335}
 											/>
