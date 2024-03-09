@@ -1,10 +1,12 @@
 "use client";
+
 import Link from "next/link";
+import NextImage from "../_components/NextImage/NextImage";
+
 import { Fragment, useState } from "react";
 import { Dialog, Disclosure, Popover, Tab, Transition } from "@headlessui/react";
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { ChevronDownIcon, PlusIcon } from "@heroicons/react/20/solid";
-import NextImage from "../_components/NextImage/NextImage";
 
 const navigation = {
 	categories: [
@@ -563,6 +565,9 @@ function classNames(...classes) {
 export default function Marketplace() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 	const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+	const [itemCount, setItemCount] = useState(0);
+	const [itemsInBag, setItemsInBag] = useState([]);
+	console.log(itemsInBag);
 
 	return (
 		<div className="bg-white">
@@ -819,7 +824,9 @@ export default function Marketplace() {
 												className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
 												aria-hidden="true"
 											/>
-											<span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
+											<span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
+												{itemsInBag.length === 0 ? "" : itemsInBag.length}
+											</span>
 											<span className="sr-only">items in cart, view bag</span>
 										</Link>
 									</div>
@@ -976,28 +983,48 @@ export default function Marketplace() {
 								{products.map((product) => (
 									<div
 										key={product.id}
-										className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white"
+										className="relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white"
 									>
-										<div className="aspect-h-4 aspect-w-3 bg-white sm:aspect-none group-hover:opacity-75 sm:h-96">
-											<NextImage
-												src={product.imageSrc[0]}
-												alt={product.imageAlt}
-												className="h-full w-full object-contain object-center sm:h-full sm:w-full"
-												height={384}
-												width={335}
-											/>
+										<div className="group pb-4">
+											<div className="aspect-h-4 aspect-w-3 bg-white group-hover:opacity-75 group-hover:cursor-pointer sm:aspect-none sm:h-96">
+												<NextImage
+													src={product.imageSrc[0]}
+													alt={product.imageAlt}
+													className="h-full w-full object-contain object-center sm:h-full sm:w-full"
+													height={384}
+													width={335}
+												/>
+											</div>
+											<div className="flex flex-1 flex-col space-y-2 p-4 pb-0 group-hover:cursor-pointer">
+												<h3 className="text-sm font-medium text-gray-900">
+													<Link href={product.href}>{product.name}</Link>
+													{/* <span aria-hidden="true" className="absolute inset-0" /> */}
+												</h3>
+												<p className="text-sm text-gray-500">{product.description}</p>
+											</div>
 										</div>
-										<div className="flex flex-1 flex-col space-y-2 p-4">
-											<h3 className="text-sm font-medium text-gray-900">
-												<Link href={product.href}>
-													<span aria-hidden="true" className="absolute inset-0" />
-													{product.name}
-												</Link>
-											</h3>
-											<p className="text-sm text-gray-500">{product.description}</p>
-											<div className="flex flex-1 flex-col justify-end">
-												<p className="text-sm italic text-gray-500">{product.options}</p>
+
+										<div className="flex flex-1 flex-col justify-end space-y-2 px-4 pb-4">
+											<p className="text-sm italic text-gray-500">{product.options}</p>
+											<div className="flex flex-row justify-between">
 												<p className="text-base font-medium text-gray-900">{product.price}</p>
+												<button className="hover:opacity-75">
+													<ShoppingBagIcon
+														className="h-6 w-6 flex-shrink-0 text-gray-400 "
+														aria-hidden="true"
+														onClick={() => setItemsInBag([...itemsInBag, product])}
+													/>
+													{itemCount >= 1 && itemCount < 10 && (
+														<span className="text-[9px] absolute bottom-[18px] right-[25px] font-bold text-gray-700">
+															{itemCount}
+														</span>
+													)}
+													{itemCount >= 10 && (
+														<span className="text-[9px] absolute bottom-[18px] right-[21px] font-bold text-gray-700">
+															{"9+"}
+														</span>
+													)}
+												</button>
 											</div>
 										</div>
 									</div>

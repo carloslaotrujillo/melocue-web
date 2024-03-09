@@ -16,7 +16,6 @@ export const UserProvider = ({ children }) => {
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChangedListener((user) => {
-			console.log("USER CONTEXT", user);
 			if (user) {
 				try {
 					(async () => {
@@ -27,7 +26,7 @@ export const UserProvider = ({ children }) => {
 					alert("Cannot sign in user, an error has been emitted");
 				}
 			} else {
-				router.push("/");
+				// router.push("/");
 			}
 			setCurrentUser(user);
 		});
