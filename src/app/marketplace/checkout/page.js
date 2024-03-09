@@ -363,7 +363,7 @@ export default function Checkout() {
 								<button type="button">Continue</button>
 							</Link>
 							<p className="mt-4 text-center text-sm text-gray-500 sm:mt-0 sm:text-left">
-								You won't be charged until the next step.
+								You won&apos;t be charged until the next step.
 							</p>
 						</div>
 					</div>
