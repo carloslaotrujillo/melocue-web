@@ -18,7 +18,7 @@ export default function Confirmation() {
 			<div className="mx-auto max-w-3xl">
 				<div className="max-w-xl">
 					<h1 className="text-base font-medium text-indigo-600">Thank you!</h1>
-					<p className="mt-2 text-4xl font-bold tracking-tight">It's on the way!</p>
+					<p className="mt-2 text-4xl font-bold tracking-tight">It&rsquo;s on the way!</p>
 					<p className="mt-2 text-base text-gray-500">Your order #14034056 has shipped and will be with you soon.</p>
 
 					<dl className="mt-12 text-sm font-medium">
