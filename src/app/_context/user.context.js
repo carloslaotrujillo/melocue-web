@@ -25,8 +25,6 @@ export const UserProvider = ({ children }) => {
 					console.error("User sign in encountered an error", error);
 					alert("Cannot sign in user, an error has been emitted");
 				}
-			} else {
-				// router.push("/");
 			}
 			setCurrentUser(user);
 		});

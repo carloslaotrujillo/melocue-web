@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import NextImage from "../_components/NextImage/NextImage";
+import PromotionHeader from "../_components/PromotionHeader/PromotionHeader";
 
 import { Fragment, useState } from "react";
 import { Dialog, Disclosure, Popover, Tab, Transition } from "@headlessui/react";
@@ -686,9 +687,7 @@ export default function Marketplace() {
 				</Transition.Root>
 
 				<header className="relative bg-white">
-					<p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
-						Get free delivery on orders over $100
-					</p>
+					<PromotionHeader />
 
 					<nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 						<div className="border-b border-gray-200">
@@ -819,7 +818,7 @@ export default function Marketplace() {
 
 									{/* Cart */}
 									<div className="ml-4 flow-root lg:ml-6">
-										<Link href="#" className="group -m-2 flex items-center p-2">
+										<Link href="/marketplace/cart" className="group -m-2 flex items-center p-2">
 											<ShoppingBagIcon
 												className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
 												aria-hidden="true"
@@ -985,24 +984,26 @@ export default function Marketplace() {
 										key={product.id}
 										className="relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white"
 									>
-										<div className="group pb-4">
-											<div className="aspect-h-4 aspect-w-3 bg-white group-hover:opacity-75 group-hover:cursor-pointer sm:aspect-none sm:h-96">
-												<NextImage
-													src={product.imageSrc[0]}
-													alt={product.imageAlt}
-													className="h-full w-full object-contain object-center sm:h-full sm:w-full"
-													height={384}
-													width={335}
-												/>
+										<Link href={`/marketplace/item/`}>
+											<div className="group pb-4">
+												<div className="aspect-h-4 aspect-w-3 bg-white group-hover:opacity-75 group-hover:cursor-pointer sm:aspect-none sm:h-96">
+													<NextImage
+														src={product.imageSrc[0]}
+														alt={product.imageAlt}
+														className="h-full w-full object-contain object-center sm:h-full sm:w-full"
+														height={384}
+														width={335}
+													/>
+												</div>
+												<div className="flex flex-1 flex-col space-y-2 p-4 pb-0 group-hover:cursor-pointer">
+													<h3 className="text-sm font-medium text-gray-900">
+														{product.name}
+														{/* <span aria-hidden="true" className="absolute inset-0" /> */}
+													</h3>
+													<p className="text-sm text-gray-500">{product.description}</p>
+												</div>
 											</div>
-											<div className="flex flex-1 flex-col space-y-2 p-4 pb-0 group-hover:cursor-pointer">
-												<h3 className="text-sm font-medium text-gray-900">
-													<Link href={product.href}>{product.name}</Link>
-													{/* <span aria-hidden="true" className="absolute inset-0" /> */}
-												</h3>
-												<p className="text-sm text-gray-500">{product.description}</p>
-											</div>
-										</div>
+										</Link>
 
 										<div className="flex flex-1 flex-col justify-end space-y-2 px-4 pb-4">
 											<p className="text-sm italic text-gray-500">{product.options}</p>
