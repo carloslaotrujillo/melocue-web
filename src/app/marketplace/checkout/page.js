@@ -1,10 +1,12 @@
 "use client";
 
+import Link from "next/link";
+import NextImage from "@/app/_components/NextImage/NextImage";
+import PromotionHeader from "@/app/_components/PromotionHeader/PromotionHeader";
+
 import { Fragment } from "react";
 import { ChevronRightIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 import { Popover, Transition } from "@headlessui/react";
-import Link from "next/link";
-import PromotionHeader from "@/app/_components/PromotionHeader/PromotionHeader";
 
 const steps = [
 	{ name: "Cart", href: "/marketplace/cart", status: "complete" },
@@ -51,9 +53,11 @@ export default function Checkout() {
 						<ul role="list" className="divide-y divide-gray-200 text-sm font-medium text-gray-900">
 							{products.map((product) => (
 								<li key={product.id} className="flex items-start space-x-4 py-6">
-									<img
+									<NextImage
 										src={product.imageSrc}
 										alt={product.imageAlt}
+										width={96}
+										height={96}
 										className="h-20 w-20 flex-none rounded-md object-cover object-center"
 									/>
 									<div className="flex-auto space-y-1">

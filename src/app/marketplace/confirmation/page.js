@@ -1,3 +1,5 @@
+import NextImage from "@/app/_components/NextImage/NextImage";
+
 const products = [
 	{
 		id: 1,
@@ -17,7 +19,7 @@ export default function Confirmation() {
 		<main className="bg-white px-4 pb-24 pt-16 sm:px-6 sm:pt-24 lg:px-8 lg:py-16">
 			<div className="mx-auto max-w-3xl">
 				<div className="max-w-xl">
-					<h1 className="text-base font-medium text-indigo-600">Thank you!</h1>
+					<h1 className="text-2xl font-medium text-indigo-600">Thank you!</h1>
 					<p className="mt-2 text-4xl font-bold tracking-tight">It&rsquo;s on the way!</p>
 					<p className="mt-2 text-base text-gray-500">Your order #14034056 has shipped and will be with you soon.</p>
 
@@ -35,9 +37,11 @@ export default function Confirmation() {
 					<h3 className="sr-only">Items</h3>
 					{products.map((product) => (
 						<div key={product.id} className="flex space-x-6 border-b border-gray-200 py-10">
-							<img
+							<NextImage
 								src={product.imageSrc}
 								alt={product.imageAlt}
+								width={160}
+								height={160}
 								className="h-20 w-20 flex-none rounded-lg bg-gray-100 object-cover object-center sm:h-40 sm:w-40"
 							/>
 							<div className="flex flex-auto flex-col">
