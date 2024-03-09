@@ -362,13 +362,10 @@ export default function Checkout() {
 						<div className="mt-10 border-t border-gray-200 pt-6 sm:flex sm:items-center sm:justify-between">
 							<Link
 								href="/marketplace/confirmation"
-								className="w-full rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:order-last sm:ml-6 sm:w-auto"
+								className="w-full rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:order-last sm:w-auto"
 							>
-								<button type="button">Continue</button>
+								<button type="button">Confirm Order</button>
 							</Link>
-							<p className="mt-4 text-center text-sm text-gray-500 sm:mt-0 sm:text-left">
-								You won&apos;t be charged until the next step.
-							</p>
 						</div>
 					</div>
 				</form>
