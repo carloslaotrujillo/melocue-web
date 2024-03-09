@@ -568,7 +568,6 @@ export default function Marketplace() {
 	const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 	const [itemCount, setItemCount] = useState(0);
 	const [itemsInBag, setItemsInBag] = useState([]);
-	console.log(itemsInBag);
 
 	return (
 		<div className="bg-white">
