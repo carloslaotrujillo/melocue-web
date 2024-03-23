@@ -20,7 +20,7 @@ export default function NavBar() {
 	const { currentUser } = useContext(UserContext);
 
 	return (
-		<header className="bg-lime-400 w-full z-50">
+		<header className="bg-lime-400 w-full z-10">
 			<nav className="mx-auto flex max-w-7xl items-center justify-between gap-x-6 p-2 lg:px-8" aria-label="Global">
 				<div className="flex">
 					<Link href="/" className="-m-1.5 p-1.5">
@@ -88,7 +88,7 @@ export default function NavBar() {
 				</div>
 			</nav>
 			<Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-				<div className="fixed inset-0 z-10" />
+				<div className="fixed inset-0 z-50" />
 				<Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-lime-400 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
 					<div className="flex items-center gap-x-6">
 						<Link href="#" className="-m-1.5 p-1.5">
