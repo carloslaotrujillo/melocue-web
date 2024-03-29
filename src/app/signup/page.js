@@ -174,7 +174,7 @@ export default function SignUp() {
 				<div className="relative hidden w-0 flex-1 lg:block">
 					<NextImage
 						className="absolute inset-0 h-full w-full object-cover"
-						src="/bg/bg25.jpg"
+						src="/bg/bg5.jpg"
 						alt="Music Cassettes"
 						width={1920}
 						height={1080}
