@@ -5,8 +5,10 @@
 	"scripts": {
 		"build": "next build",
 		"lint": "next lint",
+		"type-check": "tsc --noEmit --watch",
 		"dev": "doppler run -- next dev --turbo",
-		"start": "doppler run -- next build && next start"
+		"start": "doppler run -- next build && next start",
+		"devts": "concurrently \"npm run dev\" \"npm run type-check\""
 	},
 	"dependencies": {
 		"@headlessui/react": "^1.7.17",
@@ -22,14 +24,15 @@
 		"sharp": "^0.33.2"
 	},
 	"devDependencies": {
-		"typescript": "^5",
 		"@types/node": "^20",
 		"@types/react": "^18",
 		"@types/react-dom": "^18",
 		"autoprefixer": "^10.0.1",
+		"concurrently": "^8.2.2",
+		"eslint": "^8",
+		"eslint-config-next": "14.1.4",
 		"postcss": "^8",
 		"tailwindcss": "^3.3.0",
-		"eslint": "^8",
-		"eslint-config-next": "14.1.4"
+		"typescript": "^5"
 	}
 }
