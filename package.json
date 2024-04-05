@@ -6,9 +6,9 @@
 		"build": "next build",
 		"lint": "next lint",
 		"type-check": "tsc --noEmit --watch",
-		"dev": "doppler run -- next dev --turbo",
+		"run-next": "doppler run -- next dev --turbo",
 		"start": "doppler run -- next build && next start",
-		"devts": "concurrently \"npm run dev\" \"npm run type-check\""
+		"dev": "concurrently \"npm run run-next\" \"npm run type-check\""
 	},
 	"dependencies": {
 		"@headlessui/react": "^1.7.17",
@@ -27,6 +27,7 @@
 		"@types/node": "^20",
 		"@types/react": "^18",
 		"@types/react-dom": "^18",
+		"@types/react-google-recaptcha": "^2.1.9",
 		"autoprefixer": "^10.0.1",
 		"concurrently": "^8.2.2",
 		"eslint": "^8",

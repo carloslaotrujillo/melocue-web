@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 import {
+	User,
 	getAuth,
 	signOut,
 	signInWithRedirect,
@@ -32,20 +33,20 @@ googleProvider.setCustomParameters({ prompt: "select_account" });
 export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googleProvider);
 
 // Email and Password Authentication
-export const createAuthUserWithEmailAndPassword = async (email, password) => {
+export const createAuthUserWithEmailAndPassword = async (email: string, password: string) => {
 	if (!email || !password) return;
 
 	return await createUserWithEmailAndPassword(auth, email, password);
 };
 
-export const signInAuthUserWithEmailAndPassword = async (email, password) => {
+export const signInAuthUserWithEmailAndPassword = async (email: string, password: string) => {
 	if (!email || !password) return;
 
 	return await signInWithEmailAndPassword(auth, email, password);
 };
 
 // Create User Document
-export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
+export const createUserDocumentFromAuth = async (userAuth: User, additionalInformation = {}) => {
 	if (!userAuth) return;
 
 	const userRef = doc(db, "users", userAuth.uid);
@@ -63,7 +64,7 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
 				...additionalInformation,
 			});
 		} catch (error) {
-			console.error("Error creating user", error.message);
+			console.error("Error creating user", (error as Error).message);
 		}
 	}
 
@@ -71,7 +72,7 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
 };
 
 // Newsletter
-export const createNewNewsletterEmail = async (email) => {
+export const createNewNewsletterEmail = async (email: string) => {
 	if (!email) return;
 
 	const newsletterRef = doc(db, "newsletter", email);
@@ -83,7 +84,7 @@ export const createNewNewsletterEmail = async (email) => {
 				email,
 			});
 		} catch (error) {
-			console.error("Error creating newsletter email", error.message);
+			console.error("Error creating newsletter email", (error as Error).message);
 		}
 	}
 
@@ -91,7 +92,7 @@ export const createNewNewsletterEmail = async (email) => {
 };
 
 // Auth State Change Listener
-export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
+export const onAuthStateChangedListener = (callback: (user: User | null) => void) => onAuthStateChanged(auth, callback);
 
 // Sign Out
 export const signOutUser = async () => await signOut(auth);

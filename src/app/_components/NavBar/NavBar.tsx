@@ -17,7 +17,7 @@ const navigation = [
 export default function NavBar() {
 	const router = useRouter();
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-	const { currentUser } = useContext(UserContext);
+	const { currentUser } = useContext(UserContext) || {};
 
 	return (
 		<header className="bg-lime-400 w-full z-10">

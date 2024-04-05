@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Logo from "../_components/Logo/Logo";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useRouter } from "next/navigation";
 import NextImage from "../_components/NextImage/NextImage";
 import {
@@ -11,6 +11,7 @@ import {
 	createUserDocumentFromAuth,
 	createAuthUserWithEmailAndPassword,
 } from "../_utils/firebase/firebase.utils";
+import { UserContext } from "../_context/user.context";
 
 const defaultFormFields = {
 	displayName: "",
@@ -22,8 +23,9 @@ export default function SignUp() {
 	const router = useRouter();
 	const [formFields, setFormFields] = useState(defaultFormFields);
 	const { displayName, email, password } = formFields;
+	const { currentUser, setCurrentUser } = useContext(UserContext) || {};
 
-	const handleChange = (event) => {
+	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = event.target;
 		setFormFields({ ...formFields, [name]: value });
 	};
@@ -32,20 +34,30 @@ export default function SignUp() {
 		setFormFields(defaultFormFields);
 	};
 
-	const handleSubmit = async (event) => {
+	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
 		try {
-			const { user } = await createAuthUserWithEmailAndPassword(email, password);
-			await createUserDocumentFromAuth(user, { displayName });
-			setCurrentUser(user);
+			const response = await createAuthUserWithEmailAndPassword(email, password);
+			if (!response) throw new Error("createAuthUserWithEmailAndPassword returned undefined.");
+			const { user } = response;
+			if (!user) throw new Error("No user object returned from authentication.");
+
+			await createUserDocumentFromAuth({ ...user, displayName });
+
+			if (setCurrentUser) {
+				setCurrentUser(user);
+			} else {
+				console.error("setCurrentUser is undefined");
+			}
+
 			router.push("/profile");
 		} catch (error) {
-			if (error.code === "auth/email-already-in-use") {
-				alert("Cannot create user, email already in use");
+			if ((error as any).code === "auth/email-already-in-use") {
+				alert("Cannot sign up user, email already exists.");
 			} else {
-				console.error("User creation encountered an error", error);
-				alert("Cannot create user, an error has been emitted");
+				console.error("User sign up encountered an error", error);
+				alert("Cannot sign up user, an error has been emitted");
 			}
 		}
 	};

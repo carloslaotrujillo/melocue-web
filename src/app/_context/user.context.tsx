@@ -1,21 +1,27 @@
 "use client";
 
+import { User } from "firebase/auth";
 import { useRouter } from "next/navigation";
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, SetStateAction } from "react";
 import { onAuthStateChangedListener, createUserDocumentFromAuth } from "../_utils/firebase/firebase.utils";
 
-export const UserContext = createContext({
+interface UserContextType {
+	currentUser: User | null;
+	setCurrentUser: React.Dispatch<React.SetStateAction<User | null>>;
+}
+
+export const UserContext = createContext<UserContextType | undefined>({
 	setCurrentUser: () => null,
 	currentUser: null,
 });
 
-export const UserProvider = ({ children }) => {
+export const UserProvider = ({ children }: { children: React.ReactNode }) => {
 	const router = useRouter();
-	const [currentUser, setCurrentUser] = useState(null);
+	const [currentUser, setCurrentUser] = useState<User | null>(null);
 	const value = { currentUser, setCurrentUser };
 
 	useEffect(() => {
-		const unsubscribe = onAuthStateChangedListener((user) => {
+		const unsubscribe = onAuthStateChangedListener((user: User | null) => {
 			if (user) {
 				try {
 					(async () => {
