@@ -559,7 +559,7 @@ const products = [
 	},
 ];
 
-function classNames(...classes) {
+function classNames(...classes: Array<string | boolean | undefined>) {
 	return classes.filter(Boolean).join(" ");
 }
 
@@ -946,7 +946,7 @@ export default function Marketplace() {
 							<div className="hidden lg:block">
 								<form className="space-y-10 divide-y divide-gray-200">
 									{filters.map((section, sectionIdx) => (
-										<div key={section.name} className={sectionIdx === 0 ? null : "pt-10"}>
+										<div key={section.name} className={sectionIdx === 0 ? "" : "pt-10"}>
 											<fieldset>
 												<legend className="block text-sm font-medium text-gray-900">{section.name}</legend>
 												<div className="space-y-3 pt-6">
@@ -1012,7 +1012,7 @@ export default function Marketplace() {
 													<ShoppingBagIcon
 														className="h-6 w-6 flex-shrink-0 text-gray-400 "
 														aria-hidden="true"
-														onClick={() => setItemsInBag([...itemsInBag, product])}
+														onClick={() => setItemsInBag([...itemsInBag, product] as typeof itemsInBag)}
 													/>
 													{itemCount >= 1 && itemCount < 10 && (
 														<span className="text-[9px] absolute bottom-[18px] right-[25px] font-bold text-gray-700">

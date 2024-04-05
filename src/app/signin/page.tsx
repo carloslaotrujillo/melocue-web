@@ -3,13 +3,14 @@
 import Link from "next/link";
 import Logo from "../_components/Logo/Logo";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useRouter } from "next/navigation";
 import {
 	signInWithGoogleRedirect,
 	createUserDocumentFromAuth,
 	signInAuthUserWithEmailAndPassword,
 } from "../_utils/firebase/firebase.utils";
+import { UserContext } from "../_context/user.context";
 
 const defaultFormFields = {
 	email: "",
@@ -19,9 +20,10 @@ const defaultFormFields = {
 export default function SignIn() {
 	const router = useRouter();
 	const [formFields, setFormFields] = useState(defaultFormFields);
+	const { currentUser, setCurrentUser } = useContext(UserContext) || {};
 	const { email, password } = formFields;
 
-	const handleChange = (event) => {
+	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = event.target;
 		setFormFields({ ...formFields, [name]: value });
 	};
@@ -30,18 +32,24 @@ export default function SignIn() {
 		setFormFields(defaultFormFields);
 	};
 
-	const handleSubmit = async (event) => {
+	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
 		try {
-			const { user } = await signInAuthUserWithEmailAndPassword(email, password);
-			user.displayName = user.email.split("@")[0];
-			await createUserDocumentFromAuth(user);
-			setCurrentUser(user);
+			const response = await signInAuthUserWithEmailAndPassword(email, password);
+			if (!response) throw new Error("signInAuthUserWithEmailAndPassword returned undefined.");
+			const { user } = response;
+
+			if (setCurrentUser) {
+				setCurrentUser(user);
+			} else {
+				console.error("setCurrentUser is undefined");
+			}
+
 			router.push("/profile");
 		} catch (error) {
-			if (error.code === "auth/invalid-credential") {
-				alert("Invalid credentials");
+			if ((error as any).code === "auth/invalid-credential") {
+				alert("Cannot sign in user, invalid credentials.");
 			} else {
 				console.error("User sign in encountered an error", error);
 				alert("Cannot sign in user, an error has been emitted");

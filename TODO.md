@@ -1,5 +1,13 @@
+ASAP
+- [ ] Migrate to TS
+- [ ] Use Redux for state management
+- [ ] Use Redux-Saga for async actions
+- [ ] Use Redux-Form for form management
+- [ ] Use Reselect for memoized selectors
+- [ ] Use Stripe for payment processing with serverless functions
+
 TO IMPLEMENT FIRST
-- [ ] Social Networking Features
+  - [ ] Social Networking Features
   - Core to any social platform; allows for basic user registration, profile creation, and following other users.
   - Enable users to create, share, and explore playlists.
   - Allow user to post to app feed, comment, upvote etc...

@@ -4,13 +4,13 @@ import { createNewNewsletterEmail } from "../../_utils/firebase/firebase.utils";
 
 export default function Newsletter() {
 	const [email, setEmail] = useState("");
-	const [recaptchaValue, setRecaptchaValue] = useState(null);
+	const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null);
 
-	const onRecaptchaChange = (value) => {
+	const onRecaptchaChange = (value: string | null) => {
 		setRecaptchaValue(value);
 	};
 
-	const handleSubmit = async (e) => {
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		if (recaptchaValue) {
 			try {
@@ -54,7 +54,7 @@ export default function Newsletter() {
 						</button>
 					</div>
 					<ReCAPTCHA
-						sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+						sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
 						onChange={onRecaptchaChange}
 						className="py-4"
 					/>
