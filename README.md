@@ -17,7 +17,7 @@ Front end
 - Doppler (env vars)
 - Vercel
 - Firebase
-- Stripe (serverless function)- 
+- Stripe (serverless function) 
 
 
 Back end (Microservices)
