@@ -17,7 +17,7 @@ Front end
 
 
 Back end (Microservices)
-- Nodejs
+- Nodejs/Nestjs
 - Express
 - REST/JSON API
 - MongoDB/Mongoose (for user data & social media data)
