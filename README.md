@@ -40,6 +40,9 @@ DevOps
 - RabbitMQ
 
 To consider:
+  - GraphQL
+  - Redis
+  - Testing = Jest || Mocha || Chai || Enzyme || Cypress
   - CI/CD = Github Actions || Jenkins || AWS CodePipeline
   - Monitoring = AWS CloudWatch || Sentry || New Relic || Datadog
   - Logging = AWS CloudWatch || Loggly || Papertrail
