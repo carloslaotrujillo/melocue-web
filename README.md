@@ -7,7 +7,6 @@ Front end
 - React
 - Nextjs
 - Redux
-- Redux-saga
 - TailwindCSS
 - TailwdindUI
 - Doppler (env vars)
@@ -26,7 +25,6 @@ Back end (Microservices)
 
 
 DevOps
-- MongoDB Atlas
 - AWS 
   - API Gateway
   - S3
@@ -43,9 +41,9 @@ To consider:
   - Monitoring = AWS CloudWatch || Sentry || New Relic || Datadog
   - Logging = AWS CloudWatch || Loggly || Papertrail
   - Error tracking = Sentry || Rollbar || Bugsnag
-  - Security = AWS Shield || AWS WAF || Cloudflare || Auth0
+  - Security = AWS Shield || AWS WAF || Cloudflare
   - Performance = AWS CloudFront || Cloudflare || Akamai
-  - Analytics = Google Analytics || Mixpanel || Amplitude || Segment
+  - Analytics = Google Analytics || Mixpanel || Amplitude || Segment || Parsely
   - A/B Testing = Google Optimize || Optimizely || VWO
   - SEO = Google Search Console || SEMrush || Moz
   - Marketing Automation = HubSpot || Marketo || Pardot
